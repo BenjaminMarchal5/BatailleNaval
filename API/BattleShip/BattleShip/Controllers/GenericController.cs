@@ -9,11 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShip.Services.Services
+namespace BattleShip.Controllers
 {
     public class GenericController<T> : ControllerBase where T : class,IStoredObject
     {
-        protected BattleShipContext _context;
+        private BattleShipContext _context;
         public GenericController(BattleShipContext context)
         {
             _context = context;
@@ -50,25 +50,29 @@ namespace BattleShip.Services.Services
         }
 
         [HttpPatch("{id}")]
-        public T Modify(int id,[FromBody]JsonPatchDocument<T> patchDocument)
+        public ActionResult Modify(int id,[FromBody]JsonPatchDocument<T> patchDocument)
         {
             var baseObject = Get(id);
+            if (baseObject==null)
+            {
+                return NotFound();
+            }
             patchDocument.ApplyTo(baseObject);
             _context.SaveChanges();
-            return baseObject;
+            return Ok(baseObject);
         }
 
         [HttpDelete("{id}")]
-        public ActionResult<bool> Delete(int id)
+        public ActionResult Delete(int id)
         {
             var toDelete = Get(id);
             if (toDelete==null)
             {
-                return BadRequest(false);
+                return NotFound();
             }
             _context.Set<T>().Remove(toDelete);
             _context.SaveChanges();
-            return Ok(true);
+            return Ok(id);
         }
 
     }

@@ -29,14 +29,16 @@ namespace BattleShip
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             var cs = Configuration.GetConnectionString("battleshipdb");
             services.AddDbContextPool<BattleShipContext>(builder =>
             {
                 builder.UseMySql(cs, ServerVersion.AutoDetect(cs));
             });
-            //services.AddScoped<typeof(GenericService<>)>();
             services.AddScoped<ShipService>();
+            services.AddScoped<ShootService>();
+            services.AddScoped<PlayerService>();
+            services.AddScoped<UserService>();
+            services.AddScoped<GameService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

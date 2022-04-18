@@ -16,9 +16,6 @@ namespace BattleShip.Services.Services
             _context = context;
         }
 
-        public List<Ship> GetAll()
-        {
-            return _context.Ship.ToList();
-        }
+        
     }
 }

@@ -4,3 +4,16 @@ D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug
 D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug\net5.0\BattleShip.Services.AssemblyInfoInputs.cache
 D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug\net5.0\BattleShip.Services.AssemblyInfo.cs
 D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug\net5.0\BattleShip.Services.csproj.CoreCompileInputs.cache
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\bin\Debug\net5.0\BattleShip.Model.deps.json
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\bin\Debug\net5.0\BattleShip.Model.runtimeconfig.json
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\bin\Debug\net5.0\BattleShip.Model.runtimeconfig.dev.json
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\bin\Debug\net5.0\BattleShip.Model.exe
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\bin\Debug\net5.0\BattleShip.Services.deps.json
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\bin\Debug\net5.0\BattleShip.Services.dll
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\bin\Debug\net5.0\ref\BattleShip.Services.dll
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\bin\Debug\net5.0\BattleShip.Services.pdb
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\bin\Debug\net5.0\BattleShip.Model.pdb
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug\net5.0\BattleShip.Services.csproj.CopyComplete
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug\net5.0\BattleShip.Services.dll
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug\net5.0\ref\BattleShip.Services.dll
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug\net5.0\BattleShip.Services.pdb
