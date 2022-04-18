@@ -1,0 +1,6 @@
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\bin\Debug\net5.0\BattleShip.Model.dll
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug\net5.0\BattleShip.Services.csprojAssemblyReference.cache
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug\net5.0\BattleShip.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug\net5.0\BattleShip.Services.AssemblyInfoInputs.cache
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug\net5.0\BattleShip.Services.AssemblyInfo.cs
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Services\obj\Debug\net5.0\BattleShip.Services.csproj.CoreCompileInputs.cache
