@@ -1,0 +1,15 @@
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\bin\Debug\net5.0\BattleShip.Repository.deps.json
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\bin\Debug\net5.0\BattleShip.Repository.dll
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\bin\Debug\net5.0\ref\BattleShip.Repository.dll
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\bin\Debug\net5.0\BattleShip.Repository.pdb
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\bin\Debug\net5.0\BattleShip.Model.dll
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\bin\Debug\net5.0\BattleShip.Model.pdb
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\obj\Debug\net5.0\BattleShip.Repository.csprojAssemblyReference.cache
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\obj\Debug\net5.0\BattleShip.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\obj\Debug\net5.0\BattleShip.Repository.AssemblyInfoInputs.cache
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\obj\Debug\net5.0\BattleShip.Repository.AssemblyInfo.cs
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\obj\Debug\net5.0\BattleShip.Repository.csproj.CoreCompileInputs.cache
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\obj\Debug\net5.0\BattleShip.Repository.csproj.CopyComplete
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\obj\Debug\net5.0\BattleShip.Repository.dll
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\obj\Debug\net5.0\ref\BattleShip.Repository.dll
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip.Repository\obj\Debug\net5.0\BattleShip.Repository.pdb
