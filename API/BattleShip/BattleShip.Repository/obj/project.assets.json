@@ -253,20 +253,6 @@
         "runtime": {
           "bin/placeholder/BattleShip.Model.dll": {}
         }
-      },
-      "BattleShip.Repository/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "BattleShip.Model": "1.0.0",
-          "Microsoft.AspNetCore.JsonPatch": "5.0.13"
-        },
-        "compile": {
-          "bin/placeholder/BattleShip.Repository.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BattleShip.Repository.dll": {}
-        }
       }
     }
   },
@@ -826,18 +812,12 @@
       "type": "project",
       "path": "../BattleShip.Model/BattleShip.Model.csproj",
       "msbuildProject": "../BattleShip.Model/BattleShip.Model.csproj"
-    },
-    "BattleShip.Repository/1.0.0": {
-      "type": "project",
-      "path": "../BattleShip.Repository/BattleShip.Repository.csproj",
-      "msbuildProject": "../BattleShip.Repository/BattleShip.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "BattleShip.Model >= 1.0.0",
-      "BattleShip.Repository >= 1.0.0",
-      "Microsoft.EntityFrameworkCore >= 5.0.13"
+      "Microsoft.AspNetCore.JsonPatch >= 5.0.13"
     ]
   },
   "packageFolders": {
@@ -847,11 +827,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Services\\BattleShip.Services.csproj",
-      "projectName": "BattleShip.Services",
-      "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Services\\BattleShip.Services.csproj",
+      "projectUniqueName": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Repository\\BattleShip.Repository.csproj",
+      "projectName": "BattleShip.Repository",
+      "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Repository\\BattleShip.Repository.csproj",
       "packagesPath": "C:\\Users\\anttr\\.nuget\\packages\\",
-      "outputPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Services\\obj\\",
+      "outputPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -874,9 +854,6 @@
           "projectReferences": {
             "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Model\\BattleShip.Model.csproj": {
               "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Model\\BattleShip.Model.csproj"
-            },
-            "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Repository\\BattleShip.Repository.csproj": {
-              "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Repository\\BattleShip.Repository.csproj"
             }
           }
         }
@@ -891,7 +868,7 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": {
+          "Microsoft.AspNetCore.JsonPatch": {
             "target": "Package",
             "version": "[5.0.13, )"
           }

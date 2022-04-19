@@ -31,7 +31,7 @@ namespace BattleShip.Model
         private void CreateRelations(ModelBuilder modelBuilder)
         {
             /*
-            modelBuilder.Entity<Shoot>()
+            modelBuilder.Entity<COmposition>()
                    .HasKey(c => new { c.TacosId, c.IngredientId });
             */
         }

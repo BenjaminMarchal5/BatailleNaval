@@ -1,4 +1,5 @@
 ﻿using BattleShip.Model;
+using BattleShip.Services.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,12 +10,12 @@ namespace BattleShip.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ShipController : GenericController<Ship>
+    public class ShipController : ControllerBase
     {
-        private BattleShipContext _context;
-        public ShipController(BattleShipContext context) : base(context)
+        private ShipService _ship;
+        public ShipController(ShipService ship)
         {
-            _context = context;
+            _ship = ship;
         }
     }
 }

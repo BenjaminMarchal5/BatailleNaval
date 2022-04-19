@@ -335,11 +335,26 @@
           "bin/placeholder/BattleShip.Model.dll": {}
         }
       },
+      "BattleShip.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "BattleShip.Model": "1.0.0",
+          "Microsoft.AspNetCore.JsonPatch": "5.0.13"
+        },
+        "compile": {
+          "bin/placeholder/BattleShip.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BattleShip.Repository.dll": {}
+        }
+      },
       "BattleShip.Services/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "BattleShip.Model": "1.0.0",
+          "BattleShip.Repository": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.13"
         },
         "compile": {
@@ -1093,6 +1108,11 @@
       "type": "project",
       "path": "../BattleShip.Model/BattleShip.Model.csproj",
       "msbuildProject": "../BattleShip.Model/BattleShip.Model.csproj"
+    },
+    "BattleShip.Repository/1.0.0": {
+      "type": "project",
+      "path": "../BattleShip.Repository/BattleShip.Repository.csproj",
+      "msbuildProject": "../BattleShip.Repository/BattleShip.Repository.csproj"
     },
     "BattleShip.Services/1.0.0": {
       "type": "project",

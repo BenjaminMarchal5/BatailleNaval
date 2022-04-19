@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BattleShip.Services", "Batt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BattleShip", "BattleShip\BattleShip.csproj", "{EF784212-6D50-4588-A433-4D5601B12FB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShip.Test", "BattleShip.Test\BattleShip.Test.csproj", "{29EF8FB7-3323-4269-89CD-17255F089AE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BattleShip.Test", "BattleShip.Test\BattleShip.Test.csproj", "{29EF8FB7-3323-4269-89CD-17255F089AE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShip.Repository", "BattleShip.Repository\BattleShip.Repository.csproj", "{D52BD6ED-5953-4837-AE2F-5CF762672DAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{29EF8FB7-3323-4269-89CD-17255F089AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29EF8FB7-3323-4269-89CD-17255F089AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29EF8FB7-3323-4269-89CD-17255F089AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D52BD6ED-5953-4837-AE2F-5CF762672DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D52BD6ED-5953-4837-AE2F-5CF762672DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D52BD6ED-5953-4837-AE2F-5CF762672DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D52BD6ED-5953-4837-AE2F-5CF762672DAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

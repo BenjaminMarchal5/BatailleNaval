@@ -1,4 +1,5 @@
 ﻿using BattleShip.Model;
+using BattleShip.Repository.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,10 @@ namespace BattleShip.Services.Services
 {
     public class UserService
     {
-        private BattleShipContext _context;
-
-        public UserService(BattleShipContext context)
+        private GenericRepository<User> _user;
+        public UserService(GenericRepository<User> user)
         {
-            _context = context;
+            _user = user;
         }
 
         
