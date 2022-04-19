@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace BattleShip.Repository.Repository
 {
-    public class GenericRepository<T> where T : class, IStoredObject
+
+    public class GenericRepository<T>:IGenericRepository<T> where T : class, IStoredObject
     {
         private BattleShipContext _context;
         public GenericRepository(BattleShipContext context)

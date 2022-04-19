@@ -574,9 +574,22 @@
           "BattleShip.Model.dll": {}
         }
       },
+      "BattleShip.Repository/1.0.0": {
+        "dependencies": {
+          "BattleShip.Model": "1.0.0",
+          "Microsoft.AspNetCore.JsonPatch": "5.0.13"
+        },
+        "runtime": {
+          "BattleShip.Repository.dll": {}
+        },
+        "compile": {
+          "BattleShip.Repository.dll": {}
+        }
+      },
       "BattleShip.Services/1.0.0": {
         "dependencies": {
           "BattleShip.Model": "1.0.0",
+          "BattleShip.Repository": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.13"
         },
         "runtime": {
@@ -2477,6 +2490,11 @@
       "hashPath": "system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512"
     },
     "BattleShip.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BattleShip.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

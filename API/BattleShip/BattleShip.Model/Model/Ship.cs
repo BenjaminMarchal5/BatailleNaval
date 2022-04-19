@@ -28,21 +28,6 @@ namespace BattleShip.Model
             End = new Position(x2, y2);
         }
 
-        public bool IsInGrid(int gridSize)
-        {
-            if (Start == null || End == null || gridSize <= 0) return false;
-
-            List<int> list = new List<int>() { Start.X, Start.Y, End.X, End.Y };
-
-            if (!list.All(x => x >= 0 && x < gridSize))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-
         public int GetLength()
         {
             if (!IsSet)
@@ -76,62 +61,6 @@ namespace BattleShip.Model
             }
         }
 
-        private bool IsInValeur(int deb, int fin, int otherValue)
-        {
-            EDirection? direc = GetDirection();
-            for (int i = deb; i <= fin; i++)
-            {
-
-                if (!direc.HasValue)
-                {
-                    return true;
-                }
-
-                if (direc == EDirection.HORIZONTAL && Start.X == otherValue && (Start.Y == i || End.Y == i))
-                {
-                    return true;
-                }
-                if (direc == EDirection.VERTICAL && Start.Y == otherValue && (Start.X == i || End.X == i))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public bool IsPositionAvailable(List<Ship> otherShips)
-        {
-            if (!IsSet)
-            {
-                return false;
-            }
-
-            if (otherShips == null)
-            {
-                return false;
-            }
-            List<Tuple<Position, Position>> pos = otherShips.Select(x => new Tuple<Position, Position>(x.Start, x.End)).ToList();
-
-            EDirection? direc = GetDirection();
-            if (!direc.HasValue)
-            {
-                return false;
-            }
-            foreach (var tuple in pos)
-            {
-                List<int> columns = new List<int>() { tuple.Item1.Y, tuple.Item2.Y };
-                List<int> rows = new List<int>() { tuple.Item1.X, tuple.Item2.X };
-                int otherNumber = direc.Value == EDirection.HORIZONTAL ? rows.FirstOrDefault() : columns.FirstOrDefault();
-                int deb = direc.Value == EDirection.HORIZONTAL ? columns.Min() : rows.Min();
-                int fin = direc.Value == EDirection.HORIZONTAL ? columns.Max() : rows.Max();
-
-                if (IsInValeur(deb, fin, otherNumber))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
+        
     }
 }

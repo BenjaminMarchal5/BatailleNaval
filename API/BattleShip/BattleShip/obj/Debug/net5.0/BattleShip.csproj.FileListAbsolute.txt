@@ -17,10 +17,6 @@ D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\obj\Debug\net5.0\s
 D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\obj\Debug\net5.0\BattleShip.RazorTargetAssemblyInfo.cache
 D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\obj\Debug\net5.0\BattleShip.csproj.CoreCompileInputs.cache
 D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\obj\Debug\net5.0\BattleShip.MvcApplicationPartsAssemblyInfo.cache
-D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\bin\Debug\net5.0\BattleShip.Model.deps.json
-D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\bin\Debug\net5.0\BattleShip.Model.runtimeconfig.json
-D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\bin\Debug\net5.0\BattleShip.Model.runtimeconfig.dev.json
-D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\bin\Debug\net5.0\BattleShip.Model.exe
 D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\bin\Debug\net5.0\appsettings.Development.json
 D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\bin\Debug\net5.0\appsettings.json
 D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\bin\Debug\net5.0\BattleShip.exe
@@ -44,3 +40,5 @@ D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\obj\Debug\net5.0\B
 D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\obj\Debug\net5.0\BattleShip.MvcApplicationPartsAssemblyInfo.cs
 D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\bin\Debug\net5.0\BattleShip.Repository.dll
+D:\Cours Bac+4\NFP121 PA\BattleShip\api\BattleShip\BattleShip\bin\Debug\net5.0\BattleShip.Repository.pdb
