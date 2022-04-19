@@ -124,5 +124,19 @@ namespace BattleShip.Test
             Assert.IsFalse(_shipService.IsPositionAvailable(p,ship));
         }
 
+
+        [TestMethod]
+        public void ListPointWhenShipNull()
+        {
+
+        }
+
+
+        [TestMethod]
+        public void ListPointWhenShipIsStandart()
+        {
+
+        }
+
     }
 }

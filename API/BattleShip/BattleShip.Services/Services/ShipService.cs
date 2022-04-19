@@ -27,6 +27,13 @@ namespace BattleShip.Services.Services
             return list.All(x => x >= 0 && x < gridSize);
         }
 
+
+        public List<Position> AllPoint(Ship p)
+        {
+
+        }
+
+
         public bool IsInValeur(Ship ship,int deb, int fin, int otherValue)
         {
             EDirection? direc = ship.GetDirection();

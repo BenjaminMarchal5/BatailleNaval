@@ -14,5 +14,18 @@ namespace BattleShip.Services.Factory
         {
             return new Ship() { Start = new Position(x, y), End = new Position(x2, y2) };
         }
+
+        public static Ship StandartShipHorizontal()
+        {
+            return CreateShip(2, 2, 2, 0);
+        }
+        public static Ship StandartShipVertical()
+        {
+            return CreateShip(0, 2, 2, 2);
+        }
+        public static Ship StandartShipDiagonal()
+        {
+            return CreateShip(2, 2, 0, 0);
+        }
     }
 }
