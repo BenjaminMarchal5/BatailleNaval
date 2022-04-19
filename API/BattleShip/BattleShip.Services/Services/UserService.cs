@@ -10,8 +10,8 @@ namespace BattleShip.Services.Services
 {
     public class UserService
     {
-        private GenericRepository<User> _user;
-        public UserService(GenericRepository<User> user)
+        private IGenericRepository<User> _user;
+        public UserService(IGenericRepository<User> user)
         {
             _user = user;
         }

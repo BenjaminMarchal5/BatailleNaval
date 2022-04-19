@@ -12,8 +12,6 @@ namespace BattleShip.Model
     {
 
         #region EntityRelation
-        public int UserId { get; set; }
-        public int GameId { get; set; }
         public User User { get; set; }
         public Game Game { get; set; }
         public List<Ship> Ships { get; set; }

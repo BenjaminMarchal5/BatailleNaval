@@ -1,4 +1,5 @@
 using BattleShip.Model;
+using BattleShip.Repository.Repository;
 using BattleShip.Services.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,7 +30,7 @@ namespace BattleShip
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var cs = Configuration.GetConnectionString("battleshipdb");
+            var cs = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContextPool<BattleShipContext>(builder =>
             {
                 builder.UseMySql(cs, ServerVersion.AutoDetect(cs));
@@ -39,6 +40,8 @@ namespace BattleShip
             services.AddScoped<PlayerService>();
             services.AddScoped<UserService>();
             services.AddScoped<GameService>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -15,15 +15,15 @@ namespace BattleShip.Services.Factory
             return new Ship() { Start = new Position(x, y), End = new Position(x2, y2) };
         }
 
-        public static Ship StandartShipHorizontal()
+        public static Ship StandardShipHorizontal()
         {
             return CreateShip(2, 2, 2, 0);
         }
-        public static Ship StandartShipVertical()
+        public static Ship StandardShipVertical()
         {
             return CreateShip(0, 2, 2, 2);
         }
-        public static Ship StandartShipDiagonal()
+        public static Ship StandardShipDiagonal()
         {
             return CreateShip(2, 2, 0, 0);
         }

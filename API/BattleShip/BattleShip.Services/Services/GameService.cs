@@ -10,8 +10,8 @@ namespace BattleShip.Services.Services
 {
     public class GameService
     {
-        private GenericRepository<Game> _game;
-        public GameService(GenericRepository<Game> game)
+        private IGenericRepository<Game> _game;
+        public GameService(IGenericRepository<Game> game)
         {
             _game = game;
         }

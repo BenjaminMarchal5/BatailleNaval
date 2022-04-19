@@ -11,9 +11,7 @@ namespace BattleShip.Model
     public class Shoot : IStoredObject
     {
         #region EntityRelation
-        public int PlayerId { get; set; }
         public Player Player { get; set; }
-        public int ShipId { get; set; }
         public Ship Ship { get; set; }
         #endregion
         public int Id { get; set; }

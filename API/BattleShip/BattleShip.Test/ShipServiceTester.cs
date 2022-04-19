@@ -18,10 +18,12 @@ namespace BattleShip.Test
     {
         private ShipService _shipService;
         private Mock<IGenericRepository<Ship>> _repoMock;
+        private Mock<IGenericRepository<Game>> _repoGame;
         public ShipServiceTester()
         {
             _repoMock = new Mock<IGenericRepository<Ship>>();
-            _shipService = new ShipService(_repoMock.Object);
+            _repoGame = new Mock<IGenericRepository<Game>>();
+            _shipService = new ShipService(_repoMock.Object, _repoGame.Object);
         }
 
         [TestMethod]
@@ -56,7 +58,7 @@ namespace BattleShip.Test
         }
 
         [TestMethod]
-        public void WhenShipIsInGridThenError()
+        public void WhenShipIsInGridThenSuccess()
         {
             var res = _shipService.IsInGrid(new Ship()
             {
@@ -93,16 +95,18 @@ namespace BattleShip.Test
             Ship p = ShipFactory.CreateShip(2, 1, 2, 3);
             List<Ship> ships = new List<Ship>();
             ships.Add(ShipFactory.CreateShip(2, 2, 0, 5));
-            Assert.IsTrue(_shipService.IsPositionAvailable(p,ships));
+            Assert.IsTrue(_shipService.IsPositionAvailable(p, ships));
         }
+
 
         [TestMethod]
-        public void IsPositionAvailable_WithSomeShipSamePosition_ReturnFalse()
+        public void IsPositionAvailable_WithLUDERICTEST_ReturnTrue()
         {
-            Ship p = ShipFactory.CreateShip(0, 0, 0, 0);
-            Assert.IsTrue(_shipService.IsPositionAvailable(p,new List<Ship>()));
+            Ship p = ShipFactory.CreateShip(0, 0, 2, 2);
+            List<Ship> ships = new List<Ship>();
+            ships.Add(ShipFactory.CreateShip(2, 1, 1, 2));
+            Assert.IsFalse(_shipService.IsPositionAvailable(p, ships));
         }
-
 
         [TestMethod]
         public void IsPositionAvailable_WithSameShip_ReturnFalse()
@@ -118,25 +122,134 @@ namespace BattleShip.Test
         public void IsPositionAvailable_WithTravelShip_ReturnFalse()
         {
             Ship p = ShipFactory.CreateShip(1, 1, 1, 4);
-            Ship p2 = ShipFactory.CreateShip(2, 1, 2, 3);
+            Ship p2 = ShipFactory.CreateShip(0, 2, 2, 2);
             List<Ship> ship = new List<Ship>();
             ship.Add(p2);
-            Assert.IsFalse(_shipService.IsPositionAvailable(p,ship));
+            Assert.IsFalse(_shipService.IsPositionAvailable(p, ship));
+        }
+
+
+        [TestMethod]
+        public void IsPositionAvailable_WithTravelShipDiagonal_ReturnFalse()
+        {
+            Ship p = ShipFactory.CreateShip(1, 1, 1, 4);
+            Ship p2 = ShipFactory.CreateShip(0, 1, 3, 4);
+            List<Ship> ship = new List<Ship>();
+            ship.Add(p2);
+            Assert.IsFalse(_shipService.IsPositionAvailable(p, ship));
         }
 
 
         [TestMethod]
         public void ListPointWhenShipNull()
         {
-
+            Ship p = null;
+            List<Position> pos = new List<Position>();
+            Assert.AreEqual(0, _shipService.AllPoints(p).Count);
         }
-
 
         [TestMethod]
-        public void ListPointWhenShipIsStandart()
+        public void ListPointWhenShipHorizontal()
         {
+            Ship p = ShipFactory.StandardShipHorizontal();
+            List<Position> pos = new List<Position>();
+            pos.Add(new Position(2, 2));
+            pos.Add(new Position(2, 0));
+            pos.Add(new Position(2, 1));
+            var res = _shipService.AllPoints(p);
+            res = res.OrderBy(i => i.X).ThenBy(i => i.Y).ToList();
+            pos = pos.OrderBy(i => i.X).ThenBy(i => i.Y).ToList();
+            if (pos.Count==res.Count)
+            {
+                for(int i=0;i<pos.Count;i++)
+                {
+                    Assert.AreEqual(pos[i],res[i]);
+                }
+            }
+            else
+            {
+                Assert.IsTrue(false);
+            }
+            
+
 
         }
+
+        [TestMethod]
+        public void ListPointWhenShipVertical()
+        {
+            Ship p = ShipFactory.StandardShipVertical();
+            List<Position> pos = new List<Position>();
+            pos.Add(new Position(0, 2));
+            pos.Add(new Position(2, 2));
+            pos.Add(new Position(1, 2));
+            var res = _shipService.AllPoints(p);
+            res = res.OrderBy(i => i.X).ThenBy(i => i.Y).ToList();
+            pos = pos.OrderBy(i => i.X).ThenBy(i => i.Y).ToList();
+            if (pos.Count == res.Count)
+            {
+                for (int i = 0; i < pos.Count; i++)
+                {
+                    Assert.AreEqual(pos[i], res[i]);
+                }
+            }
+            else
+            {
+                Assert.IsTrue(false);
+            }
+
+        }
+
+        [TestMethod]
+        public void ListPointWhenShipDiagonal()
+        {
+            Ship p = ShipFactory.StandardShipDiagonal();
+            List<Position> pos = new List<Position>();
+            pos.Add(new Position(0, 0));
+            pos.Add(new Position(1, 1));
+            pos.Add(new Position(2, 2));
+            var res = _shipService.AllPoints(p);
+            res = res.OrderBy(i => i.X).ThenBy(i => i.Y).ToList();
+            pos = pos.OrderBy(i => i.X).ThenBy(i => i.Y).ToList();
+            if (pos.Count == res.Count)
+            {
+                for (int i = 0; i < pos.Count; i++)
+                {
+                    Assert.AreEqual(pos[i], res[i]);
+                }
+            }
+            else
+            {
+                Assert.IsTrue(false);
+            }
+
+        }
+
+        [TestMethod]
+        public void ListPointWhenShipDiagonalOtherSize()
+        {
+            Ship p = ShipFactory.CreateShip(0, 4, 2, 2);
+            List<Position> pos = new List<Position>();
+            pos.Add(new Position(0, 4));
+            pos.Add(new Position(1, 3));
+            pos.Add(new Position(2, 2));
+            var res = _shipService.AllPoints(p);
+            res = res.OrderBy(i => i.X).ThenBy(i => i.Y).ToList();
+            pos = pos.OrderBy(i => i.X).ThenBy(i => i.Y).ToList();
+            if (pos.Count == res.Count)
+            {
+                for (int i = 0; i < pos.Count; i++)
+                {
+                    Assert.AreEqual(pos[i], res[i]);
+                }
+            }
+            else
+            {
+                Assert.IsTrue(false);
+            }
+
+        }
+
 
     }
 }

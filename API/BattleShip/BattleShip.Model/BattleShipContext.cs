@@ -17,11 +17,6 @@ namespace BattleShip.Model
         public DbSet<Player> Players { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Game> Games { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            string ch = "Server=localhost;Database=battleshipdb;Uid=root;Pwd=;";
-            optionsBuilder.UseMySql(ch, ServerVersion.AutoDetect(ch));   
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,10 +25,36 @@ namespace BattleShip.Model
 
         private void CreateRelations(ModelBuilder modelBuilder)
         {
-            /*
-            modelBuilder.Entity<COmposition>()
-                   .HasKey(c => new { c.TacosId, c.IngredientId });
-            */
+            modelBuilder.Entity<Game>(opt =>
+            {
+                opt.HasMany(x => x.Players).WithOne(x => x.Game);
+            });
+
+            modelBuilder.Entity<Player>(opt =>
+            {
+                opt.HasMany(x => x.Ships).WithOne(x => x.Player);
+            });
+            modelBuilder.Entity<Player>(opt =>
+            {
+                opt.HasMany(x => x.Shoots).WithOne(x => x.Player);
+            });
+
+
+            modelBuilder.Entity<Ship>(opt =>
+            {
+                opt.HasMany(x => x.Shoots).WithOne(x => x.Ship);
+            });
+
+            modelBuilder.Entity<User>(opt =>
+            {
+                opt.HasMany(x => x.Players).WithOne(x => x.User);
+            });
+
+            modelBuilder.Entity<Game>(opt =>
+            {
+                opt.HasMany(x => x.RequiredShip).WithOne(x => x.Game);
+            });
+
         }
 
     }

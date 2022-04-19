@@ -10,7 +10,6 @@ namespace BattleShip.Model
     public class Ship : IStoredObject
     {
         #region EntityRelation
-        public int PlayerId { get; set; }
         public List<Shoot> Shoots { get; set; }
         public Player Player { get; set; }
         #endregion
@@ -55,9 +54,13 @@ namespace BattleShip.Model
             {
                 return EDirection.VERTICAL;
             }
-            else
+            else if(Math.Abs(Start.X-End.X)==Math.Abs(Start.Y-End.Y))
             {
                 return EDirection.DIAGONAL;
+            }
+            else
+            {
+                return null;
             }
         }
 

@@ -10,8 +10,8 @@ namespace BattleShip.Services.Services
 {
     public class ShootService
     {
-        private GenericRepository<Shoot> _shoot;
-        public ShootService(GenericRepository<Shoot> shoot)
+        private IGenericRepository<Shoot> _shoot;
+        public ShootService(IGenericRepository<Shoot> shoot)
         {
             _shoot = shoot;
         }
