@@ -16,6 +16,15 @@ namespace BattleShip.Services.Services
             _user = user;
         }
 
-        
+
+        public bool EmailIsValid(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool PasswordIsValid(User user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

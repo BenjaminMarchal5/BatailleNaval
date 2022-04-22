@@ -1,0 +1,19 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=419dc1d1_002D679a_002D41ef_002D8f7a_002D371d14c2d746/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="EmailIsUnvalidThenError" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.EmailIsUnvalidThenError&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.EmailIsValidThenSucess&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.EmailIsValid2ThenSucess&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.PasswordIsUnvalidThenError&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.ShootServiceTester.WhenShootIsBehonGridThenError&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.ShootServiceTester.WhenShootIsBehondGridThenError&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.ShootServiceTester.WhenShootIsInGridThenSuccess&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fb9e14c0_002D0883_002D4b2b_002D8f2c_002D08122a248d4d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="WhenShootIsInGridThenSuccess" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.ShootServiceTester.WhenShootIsBehondGridThenError&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.ShootServiceTester.WhenShootIsInGridAndNoBoatIsHitThenSuccess&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.ShootServiceTester.WhenShootIsInGridAndBoatIsHitThenSuccess&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
