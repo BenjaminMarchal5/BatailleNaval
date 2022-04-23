@@ -1,5 +1,5 @@
 ﻿using BattleShip.Model;
-using BattleShip.Model.Object;
+using BattleShip.Model.Model;
 using BattleShip.Repository.Repository;
 using BattleShip.Services.Factory;
 using BattleShip.Services.Services;
@@ -80,23 +80,23 @@ namespace BattleShip.Test
         [TestMethod]
         public void IsPositionAvailable_WithNoShip_ReturnTrue()
         {
-            Ship p = ShipFactory.CreateShip(0, 0, 0, 0);
+            Ship p = ShipFactory.Ship(0, 0, 0, 0);
             Assert.IsTrue(_shipService.IsPositionAvailable(p,new List<Ship>()));
         }
 
         [TestMethod]
         public void IsPositionAvailable_WithNull_ReturnFalse()
         {
-            Ship p = ShipFactory.CreateShip(0, 0, 0, 0);
+            Ship p = ShipFactory.Ship(0, 0, 0, 0);
             Assert.IsFalse(_shipService.IsPositionAvailable(p,null));
         }
 
         [TestMethod]
         public void IsPositionAvailable_WithSomeShip_ReturnTrue()
         {
-            Ship p = ShipFactory.CreateShip(2, 1, 2, 3);
+            Ship p = ShipFactory.Ship(2, 1, 2, 3);
             List<Ship> ships = new List<Ship>();
-            ships.Add(ShipFactory.CreateShip(2, 2, 0, 5));
+            ships.Add(ShipFactory.Ship(2, 2, 0, 5));
             Assert.IsTrue(_shipService.IsPositionAvailable(p, ships));
         }
 
@@ -104,16 +104,16 @@ namespace BattleShip.Test
         [TestMethod]
         public void IsPositionAvailable_WithLUDERICTEST_ReturnTrue()
         {
-            Ship p = ShipFactory.CreateShip(0, 0, 2, 2);
+            Ship p = ShipFactory.Ship(0, 0, 2, 2);
             List<Ship> ships = new List<Ship>();
-            ships.Add(ShipFactory.CreateShip(2, 1, 1, 2));
+            ships.Add(ShipFactory.Ship(2, 1, 1, 2));
             Assert.IsFalse(_shipService.IsPositionAvailable(p, ships));
         }
 
         [TestMethod]
         public void IsPositionAvailable_WithSameShip_ReturnFalse()
         {
-            Ship p = ShipFactory.CreateShip(2, 1, 2, 3);
+            Ship p = ShipFactory.Ship(2, 1, 2, 3);
             List<Ship> ship = new List<Ship>();
             ship.Add(p);
             Assert.IsFalse(_shipService.IsPositionAvailable(p,ship));
@@ -123,8 +123,8 @@ namespace BattleShip.Test
         [TestMethod]
         public void IsPositionAvailable_WithTravelShip_ReturnFalse()
         {
-            Ship p = ShipFactory.CreateShip(1, 1, 1, 4);
-            Ship p2 = ShipFactory.CreateShip(0, 2, 2, 2);
+            Ship p = ShipFactory.Ship(1, 1, 1, 4);
+            Ship p2 = ShipFactory.Ship(0, 2, 2, 2);
             List<Ship> ship = new List<Ship>();
             ship.Add(p2);
             Assert.IsFalse(_shipService.IsPositionAvailable(p, ship));
@@ -134,8 +134,8 @@ namespace BattleShip.Test
         [TestMethod]
         public void IsPositionAvailable_WithTravelShipDiagonal_ReturnFalse()
         {
-            Ship p = ShipFactory.CreateShip(1, 1, 1, 4);
-            Ship p2 = ShipFactory.CreateShip(0, 1, 3, 4);
+            Ship p = ShipFactory.Ship(1, 1, 1, 4);
+            Ship p2 = ShipFactory.Ship(0, 1, 3, 4);
             List<Ship> ship = new List<Ship>();
             ship.Add(p2);
             Assert.IsFalse(_shipService.IsPositionAvailable(p, ship));
@@ -230,7 +230,7 @@ namespace BattleShip.Test
         [TestMethod]
         public void ListPointWhenShipDiagonalOtherSize()
         {
-            Ship p = ShipFactory.CreateShip(0, 4, 2, 2);
+            Ship p = ShipFactory.Ship(0, 4, 2, 2);
             List<Position> pos = new List<Position>();
             pos.Add(new Position(0, 4));
             pos.Add(new Position(1, 3));
@@ -253,5 +253,142 @@ namespace BattleShip.Test
         }
 
 
+        [TestMethod]
+        public void IsRequiredShipWhenNoRequire()
+        {
+            List<RequiredShip> list = new List<RequiredShip>();
+            List<Ship> ships = new List<Ship>();
+            Ship p = new Ship();
+            Assert.IsFalse(_shipService.IsRequiredShip(list, ships, p));
+        }
+
+        [TestMethod]
+        public void IsRequiredShipWhenShipNull()
+        {
+            List<RequiredShip> list = new List<RequiredShip>();
+            List<Ship> ships = new List<Ship>();
+            Ship p = null;
+            Assert.IsFalse(_shipService.IsRequiredShip(list, ships, p));
+        }
+
+        [TestMethod]
+        public void IsRequiredShipWhen1RequiredIsSend()
+        {
+            List<RequiredShip> list = new List<RequiredShip>() { ShipFactory.Required(1, 2) };
+            Ship p = ShipFactory.Ship(1, 0, 1, 1);
+            Assert.IsTrue(_shipService.IsRequiredShip(list, null, p));
+        }
+
+        [TestMethod]
+        public void IsRequiredShipWhen1RequiredIsSendDiagonal()
+        {
+            List<RequiredShip> list = new List<RequiredShip>() { ShipFactory.Required(1, 2) };
+            Ship p = ShipFactory.Ship(0, 0, 1, 1);
+            Assert.IsTrue(_shipService.IsRequiredShip(list, null, p));
+        }
+
+        [TestMethod]
+        public void IsRequiredShipWhen1Required2AreSend()
+        {
+            List<RequiredShip> list = new List<RequiredShip>() { ShipFactory.Required(1, 2) };
+            List<Ship> ships = new List<Ship>() { ShipFactory.Ship(1, 0, 1, 1) };
+            Ship p = ShipFactory.Ship(1, 0, 1, 1);
+            Assert.IsFalse(_shipService.IsRequiredShip(list, ships, p));
+        }
+
+
+        [TestMethod]
+        public void IsRequiredShipWhenWrongShipIsSend()
+        {
+            List<RequiredShip> list = new List<RequiredShip>() { ShipFactory.Required(1, 5), ShipFactory.Required(1, 3) };
+            Ship p = ShipFactory.Ship(1, 0, 1, 1);
+            Assert.IsFalse(_shipService.IsRequiredShip(list, null, p));
+        }
+
+
+        [TestMethod]
+        public void IsRequiredShipWhenGoodShipAreSend()
+        {
+            List<RequiredShip> list = new List<RequiredShip>() { ShipFactory.Required(1, 5), ShipFactory.Required(1, 3) };
+            List<Ship> ships = new List<Ship>() { ShipFactory.Ship(1, 0, 1, 2) };
+            Ship p = ShipFactory.Ship(1, 0, 1, 4);
+            Assert.IsTrue(_shipService.IsRequiredShip(list, ships, p));
+        }
+
+
+        [TestMethod]
+        public void IsRequiredShipWhenToMuchAreSend()
+        {
+            List<RequiredShip> list = new List<RequiredShip>() { ShipFactory.Required(2, 3) };
+            List<Ship> ships = new List<Ship>() { ShipFactory.Ship(1, 0, 1, 2), ShipFactory.Ship(1, 0, 1, 2) };
+            Ship p = ShipFactory.Ship(1, 0, 1, 2);
+            Assert.IsFalse(_shipService.IsRequiredShip(list, ships, p));
+        }
+
+
+        [TestMethod]
+        public void RequiredLeftWithNullRequired()
+        {
+            List<Ship> ships = new List<Ship>() { ShipFactory.Ship(1, 0, 1, 2) };
+
+            Assert.IsTrue(_shipService.RequiredLeft(null, ships) == null);
+        }
+
+        [TestMethod]
+        public void RequiredLeftWithNullShip()
+        {
+            List<RequiredShip> list = new List<RequiredShip>()
+            {
+                ShipFactory.Required(1,2)
+            };
+            Assert.IsTrue(_shipService.RequiredLeft(list, null) == null);
+        }
+
+        [TestMethod]
+        public void RequiredLeftWithEmptyRequired()
+        {
+            List<RequiredShip> list = new List<RequiredShip>();
+            List<Ship> ships = new List<Ship>() { ShipFactory.StandardShipHorizontal() };
+            var res = _shipService.RequiredLeft(list, ships);
+            Assert.IsTrue(res!=null && res.Count==0);
+        }
+
+        [TestMethod]
+        public void RequiredLeftWithEmptyShip()
+        {
+            List<RequiredShip> list = new List<RequiredShip>()
+            {
+                ShipFactory.Required(1,5)
+            };
+            List<Ship> ships = new List<Ship>();
+            var res = _shipService.RequiredLeft(list, ships);
+            Assert.IsTrue(res != null && res.Count == 1 && res[0].NumberShip==1);
+        }
+
+        [TestMethod]
+        public void RequiredLeftWith1Ship()
+        {
+            List<RequiredShip> list = new List<RequiredShip>()
+            { ShipFactory.Required(2, 3) };
+            List<Ship> ships = new List<Ship>() { ShipFactory.Ship(1, 0, 1, 2) };
+
+            Assert.IsTrue(_shipService.RequiredLeft(list, ships)[0].NumberShip == 1);
+        }
+
+
+        [TestMethod]
+        public void RequiredLeftWithMutipleShip()
+        {
+            List<RequiredShip> list = new List<RequiredShip>()
+            { ShipFactory.Required(2, 3),ShipFactory.Required(1,2) };
+            List<Ship> ships = new List<Ship>() {
+                ShipFactory.Ship(1, 0, 1, 2) ,
+                ShipFactory.Ship(1, 0, 1, 2),
+                ShipFactory.Ship(1, 0, 1, 1)
+            };
+
+            var res = _shipService.RequiredLeft(list, ships);
+            Assert.IsTrue(res[0].NumberShip==0 && res[1].NumberShip==0);
+        }
     }
 }

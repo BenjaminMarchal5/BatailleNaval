@@ -1,5 +1,5 @@
 ﻿using BattleShip.Model.Interface;
-using BattleShip.Model.Object;
+using BattleShip.Model.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

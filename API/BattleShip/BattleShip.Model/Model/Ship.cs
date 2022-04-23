@@ -1,6 +1,6 @@
 using BattleShip.Model.Enum;
 using BattleShip.Model.Interface;
-using BattleShip.Model.Object;
+using BattleShip.Model.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +35,10 @@ namespace BattleShip.Model
             }
             double distX = Math.Abs(Start.X - End.X);
             double distY = Math.Abs(Start.Y - End.Y);
-            var res = distX + distY + 1;
+            var res = distX + distY;
+            if (GetDirection()!=EDirection.DIAGONAL) {
+                res++;
+            }
             return Convert.ToInt32(res);
         }
 

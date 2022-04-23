@@ -32,39 +32,20 @@ namespace BattleShip.Model.Migrations
                     b.Property<int>("GridSize")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PlayerId")
+                    b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<int>("State")
+                    b.Property<int?>("WinnerId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PlayerId");
+                    b.HasIndex("WinnerId");
 
                     b.ToTable("Games");
                 });
 
-            modelBuilder.Entity("BattleShip.Model.Model.RequiredShip", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GameId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Size")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GameId");
-
-                    b.ToTable("RequiredShip");
-                });
-
-            modelBuilder.Entity("BattleShip.Model.Object.Position", b =>
+            modelBuilder.Entity("BattleShip.Model.Model.Position", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -79,6 +60,28 @@ namespace BattleShip.Model.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Position");
+                });
+
+            modelBuilder.Entity("BattleShip.Model.Model.RequiredShip", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("GameId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumberShip")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SizeShip")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("RequiredShip");
                 });
 
             modelBuilder.Entity("BattleShip.Model.Player", b =>
@@ -97,6 +100,9 @@ namespace BattleShip.Model.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Role")
                         .HasColumnType("int");
 
                     b.Property<int?>("UserId")
@@ -203,11 +209,11 @@ namespace BattleShip.Model.Migrations
 
             modelBuilder.Entity("BattleShip.Model.Game", b =>
                 {
-                    b.HasOne("BattleShip.Model.Player", "Player")
+                    b.HasOne("BattleShip.Model.Player", "Winner")
                         .WithMany()
-                        .HasForeignKey("PlayerId");
+                        .HasForeignKey("WinnerId");
 
-                    b.Navigation("Player");
+                    b.Navigation("Winner");
                 });
 
             modelBuilder.Entity("BattleShip.Model.Model.RequiredShip", b =>
@@ -236,7 +242,7 @@ namespace BattleShip.Model.Migrations
 
             modelBuilder.Entity("BattleShip.Model.Ship", b =>
                 {
-                    b.HasOne("BattleShip.Model.Object.Position", "End")
+                    b.HasOne("BattleShip.Model.Model.Position", "End")
                         .WithMany()
                         .HasForeignKey("EndId");
 
@@ -244,7 +250,7 @@ namespace BattleShip.Model.Migrations
                         .WithMany("Ships")
                         .HasForeignKey("PlayerId");
 
-                    b.HasOne("BattleShip.Model.Object.Position", "Start")
+                    b.HasOne("BattleShip.Model.Model.Position", "Start")
                         .WithMany()
                         .HasForeignKey("StartId");
 
@@ -257,7 +263,7 @@ namespace BattleShip.Model.Migrations
 
             modelBuilder.Entity("BattleShip.Model.Shoot", b =>
                 {
-                    b.HasOne("BattleShip.Model.Object.Position", "Hit")
+                    b.HasOne("BattleShip.Model.Model.Position", "Hit")
                         .WithMany()
                         .HasForeignKey("HitId");
 

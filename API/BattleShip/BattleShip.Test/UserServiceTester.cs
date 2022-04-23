@@ -1,5 +1,5 @@
 ﻿using BattleShip.Model;
-using BattleShip.Model.Object;
+using BattleShip.Model.Model;
 using BattleShip.Repository.Repository;
 using BattleShip.Services.Factory;
 using BattleShip.Services.Services;

@@ -1,4 +1,5 @@
-﻿using BattleShip.Model.Interface;
+﻿using BattleShip.Model.Enum;
+using BattleShip.Model.Interface;
 using BattleShip.Model.Model;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace BattleShip.Model
         public int Order { get; set; }
         public EIALevel EIALevel { get;set; }
 
+        public ERolePlayer Role { get; set; }
         
         public Player() { }
 

@@ -1,5 +1,5 @@
 using BattleShip.Model;
-using BattleShip.Model.Object;
+using BattleShip.Model.Model;
 
 namespace BattleShip.Services.Factory
 {
