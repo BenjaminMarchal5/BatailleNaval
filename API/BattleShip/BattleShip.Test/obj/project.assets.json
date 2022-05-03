@@ -6776,7 +6776,7 @@
       "outputPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Test/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/benjamin/.nuget/NuGet/NuGet.Config"
+        "/Users/benjamin/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
