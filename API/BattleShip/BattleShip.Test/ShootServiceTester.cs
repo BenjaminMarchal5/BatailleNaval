@@ -1,5 +1,5 @@
 using BattleShip.Model;
-using BattleShip.Model.Object;
+using BattleShip.Model.Model;
 using BattleShip.Repository.Repository;
 using BattleShip.Services.Factory;
 using BattleShip.Services.Services;
@@ -43,7 +43,7 @@ namespace BattleShip.Test
         [TestMethod]
         public void WhenShootIsInGridAndNoBoatIsHitThenError()
         {
-            Ship p = ShipFactory.CreateShip(1, 0, 2, 0);
+            Ship p = ShipFactory.Ship(1, 0, 2, 0);
             Shoot s = ShootFactory.CreateShoot(1, 0);
             var res = _shootService.BoatHasBeenHit(p,s,5);
             Assert.IsFalse(res);

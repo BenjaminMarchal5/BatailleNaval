@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShip.Model.Object
+namespace BattleShip.Model.Model
 {
     public class Position : IStoredObject
     {

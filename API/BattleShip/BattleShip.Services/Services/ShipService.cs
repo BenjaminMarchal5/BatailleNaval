@@ -1,7 +1,6 @@
 ﻿using BattleShip.Model;
 using BattleShip.Model.Enum;
 using BattleShip.Model.Model;
-using BattleShip.Model.Object;
 using BattleShip.Repository.Repository;
 using System;
 using System.Collections.Generic;
@@ -70,6 +69,10 @@ namespace BattleShip.Services.Services
 
         public bool IsTheLastShipToPlace(Game game,Player p,Ship ship)
         {
+            if (game==null ||p==null || ship==null)
+            {
+                return false;
+            }
             int totalOtherShip = 0;
             foreach (Player player in game.Players)
             {
@@ -89,8 +92,12 @@ namespace BattleShip.Services.Services
         }
         public List<RequiredShip> RequiredLeft(List<RequiredShip> requiredShips, List<Ship> currentShips)
         {
-            var newList = new List<RequiredShip>(requiredShips);
+            if (requiredShips==null || currentShips==null)
+            {
+                return null;
+            }
 
+            var newList = new List<RequiredShip>(requiredShips);
             foreach (var s in currentShips)
             {
                 var reg = newList.Find(i => i.SizeShip == s.GetLength());
@@ -104,7 +111,15 @@ namespace BattleShip.Services.Services
 
         public bool IsRequiredShip(List<RequiredShip> requiredShips, List<Ship> currentShips, Ship ship)
         {
-            var newList = RequiredLeft(requiredShips, currentShips);
+            if (ship==null)
+            {
+                return false;
+            }
+            var newList = requiredShips;
+            if (currentShips!=null)
+            {
+                newList = RequiredLeft(requiredShips, currentShips);
+            }
             return newList.Any(i => i.SizeShip == ship.GetLength() && i.NumberShip - 1 >= 0);
         }
 
