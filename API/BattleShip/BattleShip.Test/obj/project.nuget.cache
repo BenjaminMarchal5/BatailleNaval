@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "NUYDqGo/Vh7XdhRT7/6TwWi5FqAdtjZlnY4TpXeTLjQk1O/wK1JOWeZaNDBHOUK1wasov/JvL0gtm/YZktF70w==",
+  "dgSpecHash": "JLUeFlkZDnKFp9zhqwgZuYVyLdta1UeGsEUOZpK+tsbaWIfqyl6wUCLvQv4052/9xjfT2SVYGxkEcSM4LfpiOA==",
   "success": true,
   "projectFilePath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Test/BattleShip.Test.csproj",
   "expectedPackageFiles": [
     "/Users/benjamin/.nuget/packages/castle.core/4.4.1/castle.core.4.4.1.nupkg.sha512",
     "/Users/benjamin/.nuget/packages/coverlet.collector/1.3.0/coverlet.collector.1.3.0.nupkg.sha512",
+    "/Users/benjamin/.nuget/packages/emailvalidation/1.0.7/emailvalidation.1.0.7.nupkg.sha512",
     "/Users/benjamin/.nuget/packages/microsoft.aspnetcore.jsonpatch/5.0.13/microsoft.aspnetcore.jsonpatch.5.0.13.nupkg.sha512",
     "/Users/benjamin/.nuget/packages/microsoft.codecoverage/16.7.1/microsoft.codecoverage.16.7.1.nupkg.sha512",
     "/Users/benjamin/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",

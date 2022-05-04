@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "FD2rvz0Ro+KOIKGgAvuqq8d/18sd4chN7e89SrEEehLtKrjIorpEzmcCOpPZ2xoKI5tpMGQEoLv3CHXG9uqkWA==",
+  "dgSpecHash": "t6eKI21I//LQXlSPjHj+5n9ZFdZJmRX0MSNAxQ3muoZdJR06yfan4t9VNOmg//dyEbID4xZrnYvjoYf+eZb3FA==",
   "success": true,
   "projectFilePath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Model/BattleShip.Model.csproj",
   "expectedPackageFiles": [
+    "/Users/benjamin/.nuget/packages/emailvalidation/1.0.7/emailvalidation.1.0.7.nupkg.sha512",
     "/Users/benjamin/.nuget/packages/microsoft.entityframeworkcore/5.0.13/microsoft.entityframeworkcore.5.0.13.nupkg.sha512",
     "/Users/benjamin/.nuget/packages/microsoft.entityframeworkcore.abstractions/5.0.13/microsoft.entityframeworkcore.abstractions.5.0.13.nupkg.sha512",
     "/Users/benjamin/.nuget/packages/microsoft.entityframeworkcore.analyzers/5.0.13/microsoft.entityframeworkcore.analyzers.5.0.13.nupkg.sha512",

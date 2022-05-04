@@ -15,5 +15,18 @@
     &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.ShootServiceTester.WhenShootIsBehondGridThenError&lt;/TestId&gt;
     &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.ShootServiceTester.WhenShootIsInGridAndNoBoatIsHitThenSuccess&lt;/TestId&gt;
     &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.ShootServiceTester.WhenShootIsInGridAndBoatIsHitThenSuccess&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.EmailIsUnvalidThenError&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.EmailIsValidThenSucess&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.PasswordIsUnvalidThenError&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.PasswordLenghtIsValidThenSuccess&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.PasswordWithoutNumberThenError&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.PasswordWithoutSpecialCharThenError&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.PasswordWithAllConditionThenSucess&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.PhoneNumberWithNoDigitThenError&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.PhoneNumberWithDigitAndWrongLenghtThenError&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.PhoneNumberIsValidThenSuccess&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.PasswordWithAllConditionThenSuccess&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.CivilianIdWithDigitThenError&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UserServiceTester.CivilianIdWithNoDigitThenSuccess&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

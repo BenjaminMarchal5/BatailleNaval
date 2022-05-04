@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EmailValidation" Version="1.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="5.0.13" />
   </ItemGroup>
 

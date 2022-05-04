@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wlt+kvCf4a6X0tP64ToUHzH/WrAR7ZzFixdfEtsEyqF6bIRlD6F4DZhfiyDxLa7Lur59dUmiR5vtORI3ukXeZQ==",
+  "dgSpecHash": "lDORz4JHTpy0wv2PTmd7UYL6yRuPMXGBfrTajZ0SXawAa08k1OMQwWhV2FgRQKGlKxDCF5wiNJfU3qYSkR4S3A==",
   "success": true,
   "projectFilePath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Services/BattleShip.Services.csproj",
   "expectedPackageFiles": [
+    "/Users/benjamin/.nuget/packages/emailvalidation/1.0.7/emailvalidation.1.0.7.nupkg.sha512",
     "/Users/benjamin/.nuget/packages/microsoft.aspnetcore.jsonpatch/5.0.13/microsoft.aspnetcore.jsonpatch.5.0.13.nupkg.sha512",
     "/Users/benjamin/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/benjamin/.nuget/packages/microsoft.entityframeworkcore/5.0.13/microsoft.entityframeworkcore.5.0.13.nupkg.sha512",

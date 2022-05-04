@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "EmailValidation/1.0.7": {
+        "type": "package",
+        "dependencies": {
+          "System.ComponentModel.Annotations": "4.3.0"
+        },
+        "compile": {
+          "lib/net5.0/EmailValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/EmailValidation.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.JsonPatch/5.0.13": {
         "type": "package",
         "dependencies": {
@@ -244,6 +256,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "EmailValidation": "1.0.7",
           "Microsoft.EntityFrameworkCore": "5.0.13",
           "Pomelo.EntityFrameworkCore.MySql": "5.0.3"
         },
@@ -257,6 +270,27 @@
     }
   },
   "libraries": {
+    "EmailValidation/1.0.7": {
+      "sha512": "kBYG4qrGmwjlNvuN7EfJsEr8fJZKUQVjhpYg1B7jftd42y2tpnQ/UQ15/77sR+RL2bC1+fam2aoNUokYen/xjA==",
+      "type": "package",
+      "path": "emailvalidation/1.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "emailvalidation.1.0.7.nupkg.sha512",
+        "emailvalidation.nuspec",
+        "lib/net452/EmailValidation.dll",
+        "lib/net452/EmailValidation.xml",
+        "lib/net5.0/EmailValidation.dll",
+        "lib/net5.0/EmailValidation.xml",
+        "lib/net6.0/EmailValidation.dll",
+        "lib/net6.0/EmailValidation.xml",
+        "lib/netstandard2.0/EmailValidation.dll",
+        "lib/netstandard2.0/EmailValidation.xml",
+        "lib/netstandard2.1/EmailValidation.dll",
+        "lib/netstandard2.1/EmailValidation.xml"
+      ]
+    },
     "Microsoft.AspNetCore.JsonPatch/5.0.13": {
       "sha512": "tk0xrkaptL7KXi5yjxGdAnbJ+fWTDrrf3z+/hoA3cubbIE9D+1Wvj6bNtc9jQq7S+NVvBmK+/PNY0w+zt2f/yg==",
       "type": "package",
@@ -817,6 +851,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "BattleShip.Model >= 1.0.0",
+      "EmailValidation >= 1.0.7",
       "Microsoft.AspNetCore.JsonPatch >= 5.0.13"
     ]
   },
@@ -833,7 +868,7 @@
       "outputPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Repository/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/benjamin/.config/NuGet/NuGet.Config"
+        "/Users/benjamin/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -861,6 +896,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "EmailValidation": {
+            "target": "Package",
+            "version": "[1.0.7, )"
+          },
           "Microsoft.AspNetCore.JsonPatch": {
             "target": "Package",
             "version": "[5.0.13, )"

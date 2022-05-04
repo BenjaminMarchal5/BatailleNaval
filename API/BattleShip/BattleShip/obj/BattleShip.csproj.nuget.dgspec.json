@@ -14,7 +14,7 @@
         "outputPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Model/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/benjamin/.config/NuGet/NuGet.Config"
+          "/Users/benjamin/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -38,6 +38,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "EmailValidation": {
+              "target": "Package",
+              "version": "[1.0.7, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.13, )"
@@ -76,7 +80,7 @@
         "outputPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Repository/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/benjamin/.config/NuGet/NuGet.Config"
+          "/Users/benjamin/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -104,6 +108,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "EmailValidation": {
+              "target": "Package",
+              "version": "[1.0.7, )"
+            },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
               "version": "[5.0.13, )"
@@ -138,7 +146,7 @@
         "outputPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Services/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/benjamin/.config/NuGet/NuGet.Config"
+          "/Users/benjamin/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -169,6 +177,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "EmailValidation": {
+              "target": "Package",
+              "version": "[1.0.7, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.13, )"
@@ -203,7 +215,7 @@
         "outputPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/benjamin/.config/NuGet/NuGet.Config"
+          "/Users/benjamin/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -234,11 +246,21 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "EmailValidation": {
+              "target": "Package",
+              "version": "[1.0.7, )"
+            },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
               "version": "[5.0.13, )"
             },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.13, )"
             },
