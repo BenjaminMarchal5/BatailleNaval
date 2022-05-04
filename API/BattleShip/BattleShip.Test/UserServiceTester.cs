@@ -48,13 +48,105 @@ namespace BattleShip.Test
         }
 
         [TestMethod]
-        public void PasswordIsUnvalidThenError()
+        public void PasswordLenghtIsUnvalidThenError()
         {
             var res = _userService.PasswordIsValid(new User()
             {
                 Password = "  aa  aa"
             }); 
             Assert.IsFalse(res);
+        }
+        
+        [TestMethod]
+        public void PasswordLenghtIsValidThenSuccess()
+        {
+            var res = _userService.PasswordIsValid(new User()
+            {
+                Password = "aaaaaaaa"
+            }); 
+            Assert.IsTrue(res);
+        }
+        
+        [TestMethod]
+        public void PasswordWithoutNumberThenError()
+        {
+            var res = _userService.PasswordIsValid(new User()
+            {
+                Password = "Totocarry"
+            }); 
+            Assert.IsFalse(res);
+        }
+        
+        [TestMethod]
+        public void PasswordWithoutSpecialCharThenError()
+        {
+            var res = _userService.PasswordIsValid(new User()
+            {
+                Password = "Totocarry5"
+            }); 
+            Assert.IsFalse(res);
+        }
+        
+        [TestMethod]
+        public void PasswordWithAllConditionThenSuccess()
+        {
+            var res = _userService.PasswordIsValid(new User()
+            {
+                Password = "Toto4theWin@"
+            }); 
+            Assert.IsTrue(res);
+        }
+
+        [TestMethod]
+        public void PhoneNumberWithNoDigitThenError()
+        {
+            var res = _userService.PhoneNumberIsValid(new User()
+            {
+                PhoneNumber = "zzeeffddcc"
+            }); 
+            Assert.IsFalse(res);
+        }
+        
+        [TestMethod]
+        public void PhoneNumberWithDigitAndWrongLenghtThenError()
+        {
+            var res = _userService.PhoneNumberIsValid(new User()
+            {
+                PhoneNumber = "123456"
+            }); 
+            Assert.IsFalse(res);
+        }
+        
+        [TestMethod]
+        public void PhoneNumberIsValidThenSuccess()
+        {
+            var res = _userService.PhoneNumberIsValid(new User()
+            {
+                PhoneNumber = "0678785610"
+            }); 
+            Assert.IsTrue(res);
+        }
+        
+        [TestMethod]
+        public void CivilianIdWithDigitThenError()
+        {
+            var res = _userService.CivilianID(new User()
+            {
+                LastName = "Leconte5",
+                Name = "Cyril"
+            }); 
+            Assert.IsFalse(res);
+        }
+
+        [TestMethod]
+        public void CivilianIdWithNoDigitThenSuccess()
+        {
+            var res = _userService.CivilianID(new User()
+            {
+                LastName = "Leconte",
+                Name = "Cyril"
+            }); 
+            Assert.IsTrue(res);
         }
 
     }
