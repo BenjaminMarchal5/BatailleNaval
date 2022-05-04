@@ -88,7 +88,7 @@ namespace BattleShip.Test
         public void IsPositionAvailable_WithNull_ReturnFalse()
         {
             Ship p = ShipFactory.Ship(0, 0, 0, 0);
-            Assert.IsFalse(_shipService.IsPositionAvailable(p,null));
+            Assert.IsTrue(_shipService.IsPositionAvailable(p,null));
         }
 
         [TestMethod]
@@ -388,7 +388,114 @@ namespace BattleShip.Test
             };
 
             var res = _shipService.RequiredLeft(list, ships);
-            Assert.IsTrue(res[0].NumberShip==0 && res[1].NumberShip==0);
+            Assert.IsTrue(res[0].NumberShip == 0 && res[1].NumberShip == 0);
+        }
+
+
+        [TestMethod]
+        public void PositionAroundShipNormal()
+        {
+            var p = ShipFactory.Ship(1, 0, 1, 2);
+            List<Position> positions = new List<Position>()
+            {
+                new Position(0,-1),
+                new Position(1,-1),
+                new Position(2,-1),
+                new Position(0,0),
+                new Position(1,0),
+                new Position(2,0),
+                new Position(0,1),
+                new Position(1,1),
+                new Position(2,1),
+                new Position(0,2),
+                new Position(1,2),
+                new Position(2,2),
+                new Position(0,3),
+                new Position(1,3),
+                new Position(2,3)
+            };
+
+            var points = _shipService.PositionAroundShip(p);
+            Assert.AreEqual(points.Count, positions.Count);
+            foreach (var pos in positions)
+            {
+                Assert.IsTrue(points.Any(i => i.Equals(pos)));
+            }
+        }
+
+        [TestMethod]
+        public void PositionAroundShipWhenShipNull()
+        {
+            var points = _shipService.PositionAroundShip(null);
+            Assert.AreEqual(points.Count, 0);
+        }
+
+        [TestMethod]
+        public void PositionAroundShipWhenIsntSet()
+        {
+            var points = _shipService.PositionAroundShip(new Ship());
+            Assert.AreEqual(points.Count, 0);
+        }
+
+
+        [TestMethod]
+        public void IsShipNextToAnOtherWithNullShipAndListEmpty()
+        {
+            var res = _shipService.IsShipNextToAnOther(null, new List<Ship>());
+            Assert.IsTrue(res);
+        }
+        [TestMethod]
+        public void IsShipNextToAnOtherWithEmptyShipAndListEmpty()
+        {
+            var res = _shipService.IsShipNextToAnOther(new Ship(), new List<Ship>());
+            Assert.IsTrue(res);
+        }
+        [TestMethod]
+        public void IsShipNextToAnOtherWithNoShipAndListNull()
+        {
+            var res = _shipService.IsShipNextToAnOther(new Ship(), null);
+            Assert.IsTrue(res);
+        }
+
+        [TestMethod]
+        public void IsShipNextToAnOtherWithBothNull()
+        {
+            var res = _shipService.IsShipNextToAnOther(null, null);
+            Assert.IsTrue(res);
+        }
+
+        [TestMethod]
+        public void IsShipNextToAnOtherWithOnlyListNull()
+        {
+            var res = _shipService.IsShipNextToAnOther(ShipFactory.Ship(5,4,5,6), null);
+            Assert.IsFalse(res);
+        }
+
+
+        [TestMethod]
+        public void IsShipNextToAnOtherWithNoCollisionShip()
+        {
+            Ship p = ShipFactory.Ship(0, 0, 2, 2);
+            List<Ship> otherShip = new List<Ship>()
+            {
+                ShipFactory.Ship(4,0,4,1),
+                ShipFactory.Ship(4,3,4,3)
+            };
+            var res = _shipService.IsShipNextToAnOther(p, otherShip);
+            Assert.IsFalse(res);
+        }
+
+        [TestMethod]
+        public void IsShipNextToAnOtherWithCollision()
+        {
+            Ship p = ShipFactory.Ship(0, 0, 2, 2);
+            List<Ship> otherShip = new List<Ship>()
+            {
+                ShipFactory.Ship(3,0,3,1),
+                ShipFactory.Ship(10,10,10,10)
+            };
+            var res = _shipService.IsShipNextToAnOther(p, otherShip);
+            Assert.IsTrue(res);
         }
     }
 }

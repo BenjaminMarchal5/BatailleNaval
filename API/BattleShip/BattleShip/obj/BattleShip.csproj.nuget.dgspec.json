@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip/BattleShip.csproj": {}
+    "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip\\BattleShip.csproj": {}
   },
   "projects": {
-    "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Model/BattleShip.Model.csproj": {
+    "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Model\\BattleShip.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Model/BattleShip.Model.csproj",
+        "projectUniqueName": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Model\\BattleShip.Model.csproj",
         "projectName": "BattleShip.Model",
-        "projectPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Model/BattleShip.Model.csproj",
-        "packagesPath": "/Users/benjamin/.nuget/packages/",
-        "outputPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Model/obj/",
+        "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Model\\BattleShip.Model.csproj",
+        "packagesPath": "C:\\Users\\anttr\\.nuget\\packages\\",
+        "outputPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Model\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/benjamin/.config/NuGet/NuGet.Config"
+          "C:\\Users\\anttr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,34 +68,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.103/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Repository/BattleShip.Repository.csproj": {
+    "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Repository\\BattleShip.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Repository/BattleShip.Repository.csproj",
+        "projectUniqueName": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Repository\\BattleShip.Repository.csproj",
         "projectName": "BattleShip.Repository",
-        "projectPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Repository/BattleShip.Repository.csproj",
-        "packagesPath": "/Users/benjamin/.nuget/packages/",
-        "outputPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Repository/obj/",
+        "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Repository\\BattleShip.Repository.csproj",
+        "packagesPath": "C:\\Users\\anttr\\.nuget\\packages\\",
+        "outputPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Repository\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/benjamin/.config/NuGet/NuGet.Config"
+          "C:\\Users\\anttr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Model/BattleShip.Model.csproj": {
-                "projectPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Model/BattleShip.Model.csproj"
+              "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Model\\BattleShip.Model.csproj": {
+                "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Model\\BattleShip.Model.csproj"
               }
             }
           }
@@ -124,37 +136,43 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.103/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Services/BattleShip.Services.csproj": {
+    "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Services\\BattleShip.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Services/BattleShip.Services.csproj",
+        "projectUniqueName": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Services\\BattleShip.Services.csproj",
         "projectName": "BattleShip.Services",
-        "projectPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Services/BattleShip.Services.csproj",
-        "packagesPath": "/Users/benjamin/.nuget/packages/",
-        "outputPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Services/obj/",
+        "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Services\\BattleShip.Services.csproj",
+        "packagesPath": "C:\\Users\\anttr\\.nuget\\packages\\",
+        "outputPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Services\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/benjamin/.config/NuGet/NuGet.Config"
+          "C:\\Users\\anttr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Model/BattleShip.Model.csproj": {
-                "projectPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Model/BattleShip.Model.csproj"
+              "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Model\\BattleShip.Model.csproj": {
+                "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Model\\BattleShip.Model.csproj"
               },
-              "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Repository/BattleShip.Repository.csproj": {
-                "projectPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Repository/BattleShip.Repository.csproj"
+              "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Repository\\BattleShip.Repository.csproj": {
+                "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Repository\\BattleShip.Repository.csproj"
               }
             }
           }
@@ -189,37 +207,43 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.103/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip/BattleShip.csproj": {
+    "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip\\BattleShip.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip/BattleShip.csproj",
+        "projectUniqueName": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip\\BattleShip.csproj",
         "projectName": "BattleShip",
-        "projectPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip/BattleShip.csproj",
-        "packagesPath": "/Users/benjamin/.nuget/packages/",
-        "outputPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip/obj/",
+        "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip\\BattleShip.csproj",
+        "packagesPath": "C:\\Users\\anttr\\.nuget\\packages\\",
+        "outputPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/benjamin/.config/NuGet/NuGet.Config"
+          "C:\\Users\\anttr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Model/BattleShip.Model.csproj": {
-                "projectPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Model/BattleShip.Model.csproj"
+              "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Model\\BattleShip.Model.csproj": {
+                "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Model\\BattleShip.Model.csproj"
               },
-              "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Services/BattleShip.Services.csproj": {
-                "projectPath": "/Users/benjamin/Desktop/Projet_BatailleNavale/BatailleNaval/API/BattleShip/BattleShip.Services/BattleShip.Services.csproj"
+              "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Services\\BattleShip.Services.csproj": {
+                "projectPath": "D:\\Cours Bac+4\\NFP121 PA\\BattleShip\\api\\BattleShip\\BattleShip.Services\\BattleShip.Services.csproj"
               }
             }
           }
@@ -239,6 +263,12 @@
               "version": "[5.0.13, )"
             },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.13, )"
             },
@@ -273,7 +303,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.103/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
