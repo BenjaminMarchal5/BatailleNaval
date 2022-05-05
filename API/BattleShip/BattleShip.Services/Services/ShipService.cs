@@ -12,10 +12,10 @@ namespace BattleShip.Services.Services
 {
     public class ShipService
     {
-        private IGenericRepository<Ship> _ship;
+        private ShipRepository _ship;
         private IGenericRepository<Game> _game;
         private IGenericRepository<Player> _player;
-        public ShipService(IGenericRepository<Ship> ship, IGenericRepository<Game> game, IGenericRepository<Player> player)
+        public ShipService(IShipRepository ship, IGenericRepository<Game> game, IGenericRepository<Player> player)
         {
             _ship = ship;
             _game = game;
@@ -297,11 +297,10 @@ namespace BattleShip.Services.Services
 
         #endregion
 
-        public bool HasBeenHit(Ship ship, Shoot shoot)
+        public bool HasBeenHit(Ship ship, Position pos)
         {
-            bool res = false; 
             List<Position> positionShip = AllPoints(ship);
-            if (positionShip.Any(i => i.Equals(shoot.Hit)))
+            if (positionShip.Any(i => i.Equals(pos)))
             {
                 return true; 
             }
@@ -310,6 +309,26 @@ namespace BattleShip.Services.Services
                 return false; 
             }
        
+        }
+
+        public EShipState ShipState(Ship ship)
+        {
+            if (ship == null || !ship.IsSet)
+            {
+                throw new Exception("Ship error");
+            }
+            if (ship.Shoots == null || ship.Shoots.Count == 0)
+            {
+                return EShipState.NOTHIT;
+            }
+            else if (ship.Shoots.Count > 0 && ship.Shoots.Count < ship.GetLength())
+            {
+                return EShipState.HIT;
+            }
+            else
+            {
+                return EShipState.SINK;
+            }
         }
     }
 }

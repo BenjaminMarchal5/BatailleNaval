@@ -18,13 +18,13 @@ namespace BattleShip.Test
     public class ShipServiceTester
     {
         private ShipService _shipService;
-        private Mock<IGenericRepository<Ship>> _repoMock;
+        private Mock<IShipRepository> _repoMock;
         private Mock<IGenericRepository<Game>> _repoGame;
         private Mock<IGenericRepository<Player>> _repoPlayer;
         private Mock<ShipRepository> _repoShip; 
         public ShipServiceTester()
         {
-            _repoMock = new Mock<IGenericRepository<Ship>>();
+            _repoMock = new Mock<IShipRepository>();
             _repoGame = new Mock<IGenericRepository<Game>>();
             _repoPlayer = new Mock<IGenericRepository<Player>>();
             _repoShip = new Mock<ShipRepository>(); 
@@ -506,7 +506,7 @@ namespace BattleShip.Test
         {
             Ship ship = ShipFactory.Ship(2, 2, 2, 4);
             Shoot shoot = ShootFactory.CreateShoot(2, 3); 
-            var res = _shipService.HasBeenHit(ship,shoot); 
+            var res = _shipService.HasBeenHit(ship,shoot.Hit); 
             Assert.IsTrue(res);
         }
         [TestMethod]
@@ -514,7 +514,7 @@ namespace BattleShip.Test
         {
             Ship ship = ShipFactory.Ship(2, 2, 2, 4);
             Shoot shoot = ShootFactory.CreateShoot(4, 5); 
-            var res = _shipService.HasBeenHit(ship,shoot); 
+            var res = _shipService.HasBeenHit(ship,shoot.Hit); 
             Assert.IsFalse(res);
         }
     }

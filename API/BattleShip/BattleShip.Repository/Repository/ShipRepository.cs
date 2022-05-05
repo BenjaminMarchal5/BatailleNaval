@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BattleShip.Repository.Repository
 {
-    public class ShipRepository :GenericRepository<Ship>
+    public class ShipRepository :GenericRepository<Ship>,IShipRepository
     {
         private BattleShipContext _context; 
         public ShipRepository(BattleShipContext context) : base(context)
@@ -18,7 +18,8 @@ namespace BattleShip.Repository.Repository
 
         public Ship GetShip(int id)
         {
-            return _context.Set<Ship>().Find(id);
+            return _context.Ships.Include(i => i.Shoots).Include(i => i.Player)
+                .FirstOrDefault(i => i.Id == id);
         }
         
     }
