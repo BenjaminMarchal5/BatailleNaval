@@ -297,5 +297,19 @@ namespace BattleShip.Services.Services
 
         #endregion
 
+        public bool HasBeenHit(Ship ship, Shoot shoot)
+        {
+            bool res = false; 
+            List<Position> positionShip = AllPoints(ship);
+            if (positionShip.Any(i => i.Equals(shoot.Hit)))
+            {
+                return true; 
+            }
+            else
+            {
+                return false; 
+            }
+       
+        }
     }
 }
