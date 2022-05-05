@@ -8,6 +8,7 @@ using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,12 +20,14 @@ namespace BattleShip.Test
         private ShipService _shipService;
         private Mock<IGenericRepository<Ship>> _repoMock;
         private Mock<IGenericRepository<Game>> _repoGame;
-        private Mock<IGenericRepository<Player>> _repoPlayer; 
+        private Mock<IGenericRepository<Player>> _repoPlayer;
+        private Mock<ShipRepository> _repoShip; 
         public ShipServiceTester()
         {
             _repoMock = new Mock<IGenericRepository<Ship>>();
             _repoGame = new Mock<IGenericRepository<Game>>();
             _repoPlayer = new Mock<IGenericRepository<Player>>();
+            _repoShip = new Mock<ShipRepository>(); 
             _shipService = new ShipService(_repoMock.Object, _repoGame.Object,_repoPlayer.Object);
         }
 
@@ -496,6 +499,23 @@ namespace BattleShip.Test
             };
             var res = _shipService.IsShipNextToAnOther(p, otherShip);
             Assert.IsTrue(res);
+        }
+
+        [TestMethod]
+        public void IsShipHasBeenHit()
+        {
+            Ship ship = ShipFactory.Ship(2, 2, 2, 4);
+            Shoot shoot = ShootFactory.CreateShoot(2, 3); 
+            var res = _shipService.HasBeenHit(ship,shoot); 
+            Assert.IsTrue(res);
+        }
+        [TestMethod]
+        public void IsShipHasNotBeenHit()
+        {
+            Ship ship = ShipFactory.Ship(2, 2, 2, 4);
+            Shoot shoot = ShootFactory.CreateShoot(4, 5); 
+            var res = _shipService.HasBeenHit(ship,shoot); 
+            Assert.IsFalse(res);
         }
     }
 }
