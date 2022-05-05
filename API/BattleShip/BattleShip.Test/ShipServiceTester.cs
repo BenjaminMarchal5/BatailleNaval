@@ -19,16 +19,18 @@ namespace BattleShip.Test
     {
         private ShipService _shipService;
         private Mock<IShipRepository> _repoMock;
+        private Mock<IGenericRepository<Ship>> _repoShipGeneric;
         private Mock<IGenericRepository<Game>> _repoGame;
         private Mock<IGenericRepository<Player>> _repoPlayer;
         private Mock<ShipRepository> _repoShip; 
         public ShipServiceTester()
         {
             _repoMock = new Mock<IShipRepository>();
+            _repoShipGeneric = new Mock<IGenericRepository<Ship>>();
             _repoGame = new Mock<IGenericRepository<Game>>();
             _repoPlayer = new Mock<IGenericRepository<Player>>();
             _repoShip = new Mock<ShipRepository>(); 
-            _shipService = new ShipService(_repoMock.Object, _repoGame.Object,_repoPlayer.Object);
+            _shipService = new ShipService(_repoMock.Object, _repoGame.Object,_repoPlayer.Object, _repoShipGeneric.Object);
         }
 
         [TestMethod]

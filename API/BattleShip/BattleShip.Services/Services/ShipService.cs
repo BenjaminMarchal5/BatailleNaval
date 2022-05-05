@@ -12,14 +12,17 @@ namespace BattleShip.Services.Services
 {
     public class ShipService
     {
-        private ShipRepository _ship;
+        private IShipRepository _ship;
+        private IGenericRepository<Ship> _shipGeneric;
         private IGenericRepository<Game> _game;
         private IGenericRepository<Player> _player;
-        public ShipService(IShipRepository ship, IGenericRepository<Game> game, IGenericRepository<Player> player)
+        public ShipService(IShipRepository ship, IGenericRepository<Game> game, IGenericRepository<Player> player, IGenericRepository<Ship> shipGeneric)
         {
             _ship = ship;
             _game = game;
             _player = player;
+            _shipGeneric = shipGeneric;
+            _shipGeneric = shipGeneric;
         }
 
         public Ship PlaceShip(int GameId,int PlayerId, Ship ship)
@@ -70,7 +73,7 @@ namespace BattleShip.Services.Services
                     //Put Game to next State
                 }
                 ship.Player = p;
-                return _ship.Create(ship);
+                return _shipGeneric.Create(ship);
             }
             catch (Exception ex)
             {
