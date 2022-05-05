@@ -515,8 +515,57 @@ namespace BattleShip.Test
         public void IsShipHasNotBeenHit()
         {
             Ship ship = ShipFactory.Ship(2, 2, 2, 4);
-            Shoot shoot = ShootFactory.CreateShoot(4, 5); 
-            var res = _shipService.HasBeenHit(ship,shoot.Hit); 
+            Shoot shoot = ShootFactory.CreateShoot(4, 5);
+            var res = _shipService.HasBeenHit(ship, shoot.Hit);
+            Assert.IsFalse(res);
+        }
+
+        [TestMethod]
+        public void ShipIntersectDiagonaleWhenBothNull()
+        {
+            var res = _shipService.ShipIntersectDiagonale(null, null);
+            Assert.IsFalse(res);
+        }
+
+        [TestMethod]
+        public void ShipIntersectDiagonaleWhen1Null()
+        {
+            Ship ship = ShipFactory.Ship(2, 2, 2, 4);
+            var res = _shipService.ShipIntersectDiagonale(ship, null);
+            Assert.IsFalse(res);
+        }
+        [TestMethod]
+        public void ShipIntersectDiagonaleWhenNoIntersect()
+        {
+            Ship ship = ShipFactory.Ship(2, 2, 2, 4);
+            Ship ship2 = ShipFactory.Ship(1, 0, 3, 0);
+            var res = _shipService.ShipIntersectDiagonale(ship, ship2);
+            Assert.IsFalse(res);
+        }
+        [TestMethod]
+        public void ShipIntersectDiagonaleWhenDiagonale()
+        {
+            Ship ship = ShipFactory.Ship(0, 2, 2, 4);
+            Ship ship2 = ShipFactory.Ship(2, 2, 0, 4);
+            var res = _shipService.ShipIntersectDiagonale(ship, ship2);
+            Assert.IsTrue(res);
+        }
+
+        [TestMethod]
+        public void ShipIntersectDiagonaleWhenDiagonaleNoPoint()
+        {
+            Ship ship = ShipFactory.Ship(0, 0, 2, 2);
+            Ship ship2 = ShipFactory.Ship(3, 0, 0, 3);
+            var res = _shipService.ShipIntersectDiagonale(ship, ship2);
+            Assert.IsTrue(res);
+        }
+
+        [TestMethod]
+        public void ShipIntersectDiagonaleWhenDiagonaleNotHit()
+        {
+            Ship ship = ShipFactory.Ship(0, 0, 2, 2);
+            Ship ship2 = ShipFactory.Ship(3, 0, 2, 1);
+            var res = _shipService.ShipIntersectDiagonale(ship, ship2);
             Assert.IsFalse(res);
         }
     }
