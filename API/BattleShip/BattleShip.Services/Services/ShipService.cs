@@ -54,7 +54,6 @@ namespace BattleShip.Services.Services
                     throw new Exception("Le bateau n'est pas dans le grid");
                 }
 
-
                 if (!IsRequiredShip(g.RequiredShip, p.Ships, ship))
                 {
                     throw new Exception("Le Ship n'est pas/plus requis");
@@ -62,10 +61,6 @@ namespace BattleShip.Services.Services
                 if (!IsPositionAvailable(ship, p.Ships))
                 {
                     throw new Exception("La position n'est pas bonne.");
-                }
-                if (IsShipNextToAnOther(ship, p.Ships))
-                {
-                    throw new Exception("Votre bateau est placé trop près d'un autre.");
                 }
 
                 if (IsTheLastShipToPlace(g, p, ship))
@@ -142,18 +137,16 @@ namespace BattleShip.Services.Services
                 return true;
             }
 
+            if (IsShipNextToAnOther(ship,otherShips))
+            {
+                return false;
+            }
+
             List<Position> positionShip = AllPoints(ship);
 
             foreach (var s in otherShips)
             {
                 List<Position> currPos = AllPoints(s);
-                if (s.GetDirection()==EDirection.DIAGONAL)
-                {
-                    if (ShipIntersectDiagonale(ship,s))
-                    {
-                        return false;
-                    }
-                }
                 foreach (Position p in currPos)
                 {
                     if (positionShip.Any(i => i.Equals(p)))
@@ -338,48 +331,6 @@ namespace BattleShip.Services.Services
             else
             {
                 return EShipState.SINK;
-            }
-        }
-
-        public bool ShipIntersectDiagonale(Ship p1, Ship p2)
-        {
-            if (p1 == null || p2 == null || !p1.IsSet || !p2.IsSet)
-            {
-                return false;
-            }
-
-            if (Math.Max(p1.Start.X, p1.End.X) < Math.Min(p2.Start.X,p2.End.X))
-            {
-                return false;
-            }
-
-            if (p1.Start.X-p1.End.X==0 || p2.Start.X-p2.End.X==0)
-            {
-                return false;
-            }
-            var A1 = (p1.Start.Y - p1.End.Y) / (p1.Start.X - p1.End.X);
-            var A2 = (p2.Start.Y - p2.End.Y) / (p2.Start.X - p2.End.X);
-            if (A1==A2)
-            {
-                return false;
-            }
-            var b1 =  p1.End.Y - A1 * p1.End.X;
-            var b2 =  p2.End.Y - A2 * p2.End.X;
-
-            if (A1-A2==0)
-            {
-                return false;
-            }
-            var Xa = (b2 - b1) / (A1 - A2);
-
-
-            if ((Xa < Math.Max(Math.Min(p1.Start.X, p1.End.X), Math.Min(p2.Start.X, p2.End.X))) || (Xa > Math.Min(Math.Max(p1.Start.X, p1.End.X), Math.Max(p2.Start.X, p2.End.X))))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
             }
         }
     }

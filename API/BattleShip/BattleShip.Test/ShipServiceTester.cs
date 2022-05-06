@@ -520,6 +520,8 @@ namespace BattleShip.Test
             Assert.IsFalse(res);
         }
 
+
+        /*
         [TestMethod]
         public void ShipIntersectDiagonaleWhenBothNull()
         {
@@ -568,5 +570,7 @@ namespace BattleShip.Test
             var res = _shipService.ShipIntersectDiagonale(ship, ship2);
             Assert.IsFalse(res);
         }
+
+        */
     }
 }
