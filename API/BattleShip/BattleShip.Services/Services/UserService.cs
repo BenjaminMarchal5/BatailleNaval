@@ -6,17 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EmailValidation;
+using Microsoft.AspNetCore.Http;
+using BattleShip.Services.Utils;
+using BattleShip.Repository.Interface;
 
 namespace BattleShip.Services.Services
 {
     public class UserService
     {
-        private IGenericRepository<User> _user;
-        public UserService(IGenericRepository<User> user)
+        private IGenericRepository<User> _userGeneric;
+        private IUserRepository _user;
+        public UserService(IGenericRepository<User> userGeneric, IUserRepository user)
         {
+            _userGeneric = userGeneric;
             _user = user;
         }
-        
+
         public bool EmailIsValid(User user)
         {
             return EmailValidator.Validate(user.Email);
@@ -75,6 +80,40 @@ namespace BattleShip.Services.Services
             }
 
             return res; 
+        }
+        public User GetUser(string Email)
+        {
+            var user = _user.GetUser(Email);
+            if (user==null)
+            {
+                throw new HttpStatusException(StatusCodes.Status404NotFound, "Utilisateur inconnu");
+            }
+            return user;
+        }
+
+
+        public string Authenticate(string Email,string Password)
+        {
+            var user = _user.GetUser(Email);
+
+            if (user == null)
+            {
+                throw new HttpStatusException(StatusCodes.Status400BadRequest, "Utilisateur ou mot de passe incorrect.");
+            }
+            
+            if (string.IsNullOrEmpty(user.Password))
+            {
+                throw new HttpStatusException(StatusCodes.Status400BadRequest, "Veuillez mettre votre mot de passe.");
+            }
+
+            if (user.Password != UtilsFunction.Hash(Password))
+            {
+                throw new HttpStatusException(StatusCodes.Status400BadRequest, "Utilisateur ou mot de passe incorrect.");
+            }
+
+            var token = AuthenticationHelper.GenerateJwtToken(user);
+
+            return token;
         }
     }
 }

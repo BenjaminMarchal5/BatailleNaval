@@ -1,6 +1,7 @@
 ﻿using BattleShip.Model;
 using BattleShip.Model.Enum;
 using BattleShip.Model.Model;
+using BattleShip.Repository.Interface;
 using BattleShip.Repository.Repository;
 using System;
 using System.Collections.Generic;

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BattleShip.Model.Enum
 {
-    public enum ERole
+    public static class ERole
     {
-        ADMIN,USER
+        public const string ADMIN = "ADMIN";
+        public const string USER = "USER";
     }
 }

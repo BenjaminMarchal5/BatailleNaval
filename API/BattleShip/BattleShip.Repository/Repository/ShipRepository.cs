@@ -5,6 +5,7 @@ using System.Linq;
 using BattleShip.Model;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
+using BattleShip.Repository.Interface;
 
 namespace BattleShip.Repository.Repository
 {

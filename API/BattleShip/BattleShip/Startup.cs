@@ -1,6 +1,9 @@
 using BattleShip.Model;
+using BattleShip.Repository.Interface;
 using BattleShip.Repository.Repository;
 using BattleShip.Services.Services;
+using BattleShip.Services.Utils;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,10 +13,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace BattleShip
@@ -40,12 +47,64 @@ namespace BattleShip
             services.AddScoped<PlayerService>();
             services.AddScoped<UserService>();
             services.AddScoped<GameService>();
+            services.AddScoped<IShipRepository, ShipRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BattleShip", Version = "v1" });
+                // Include controller comments in Swagger
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                //c.IncludeXmlComments(xmlPath);
+
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "JWT Authorization header using the Bearer scheme."
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] { }
+                    }
+                });
+            });
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                var signinKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(AuthenticationHelper.SECRET));
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                // options.Events = new JwtBearerEvents {OnTokenValidated = OnTokenValidated};
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ClockSkew = TimeSpan.FromMinutes(5),
+                    ValidateAudience = false,
+                    ValidateIssuer = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = signinKey
+                };
             });
         }
 
@@ -63,6 +122,9 @@ namespace BattleShip
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
+            app.UseHttpsRedirection();
 
             app.UseEndpoints(endpoints =>
             {

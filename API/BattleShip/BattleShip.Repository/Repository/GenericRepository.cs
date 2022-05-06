@@ -1,5 +1,6 @@
 ﻿using BattleShip.Model;
 using BattleShip.Model.Interface;
+using BattleShip.Repository.Interface;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using System;

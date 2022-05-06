@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.JsonPatch;
 using System.Collections.Generic;
 
-namespace BattleShip.Repository.Repository
+namespace BattleShip.Repository.Interface
 {
     public interface IGenericRepository<T> where T : class, IStoredObject
     {

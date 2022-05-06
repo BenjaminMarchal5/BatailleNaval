@@ -3,14 +3,16 @@ using System;
 using BattleShip.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BattleShip.Model.Migrations
 {
     [DbContext(typeof(BattleShipContext))]
-    partial class BattleShipContextModelSnapshot : ModelSnapshot
+    [Migration("20220506130718_ModifBDD")]
+    partial class ModifBDD
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

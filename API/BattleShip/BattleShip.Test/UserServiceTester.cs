@@ -1,5 +1,6 @@
 ﻿using BattleShip.Model;
 using BattleShip.Model.Model;
+using BattleShip.Repository.Interface;
 using BattleShip.Repository.Repository;
 using BattleShip.Services.Factory;
 using BattleShip.Services.Services;
@@ -17,13 +18,14 @@ namespace BattleShip.Test
     public class UserServiceTester
     {
         private UserService _userService;
-
+        private Mock<IUserRepository> _repoUser;
         private Mock<IGenericRepository<User>> _repoMock;
 
         public UserServiceTester()
         {
             _repoMock = new Mock<IGenericRepository<User>>();
-            _userService = new UserService(_repoMock.Object); 
+            _repoUser = new Mock<IUserRepository>();
+            _userService = new UserService(_repoMock.Object, _repoUser.Object); 
         }
 
         [TestMethod]
