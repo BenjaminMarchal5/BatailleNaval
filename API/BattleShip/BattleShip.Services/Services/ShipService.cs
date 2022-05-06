@@ -171,7 +171,7 @@ namespace BattleShip.Services.Services
             {
                 return false;
             }
-
+             
             List<Position> positionShip = AllPoints(ship);
 
             foreach (var s in otherShips)
