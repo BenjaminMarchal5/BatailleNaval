@@ -17,5 +17,6 @@ namespace BattleShip.Controllers
         {
             _ship = ship;
         }
+
     }
 }

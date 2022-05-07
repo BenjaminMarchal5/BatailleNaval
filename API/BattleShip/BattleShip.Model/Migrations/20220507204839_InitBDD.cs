@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BattleShip.Model.Migrations
 {
-    public partial class init : Migration
+    public partial class InitBDD : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,7 +43,8 @@ namespace BattleShip.Model.Migrations
                     DateOfBirth = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Role = table.Column<int>(type: "int", nullable: false)
+                    Role = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
@@ -62,7 +63,8 @@ namespace BattleShip.Model.Migrations
                     NickName = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Order = table.Column<int>(type: "int", nullable: false),
-                    EIALevel = table.Column<int>(type: "int", nullable: false)
+                    EIALevel = table.Column<int>(type: "int", nullable: false),
+                    Role = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -82,7 +84,7 @@ namespace BattleShip.Model.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    PlayerId = table.Column<int>(type: "int", nullable: true),
+                    WinnerId = table.Column<int>(type: "int", nullable: true),
                     DateStart = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     DateEnd = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     GridSize = table.Column<int>(type: "int", nullable: false),
@@ -92,8 +94,8 @@ namespace BattleShip.Model.Migrations
                 {
                     table.PrimaryKey("PK_Games", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Games_Players_PlayerId",
-                        column: x => x.PlayerId,
+                        name: "FK_Games_Players_WinnerId",
+                        column: x => x.WinnerId,
                         principalTable: "Players",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -141,7 +143,8 @@ namespace BattleShip.Model.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     GameId = table.Column<int>(type: "int", nullable: true),
-                    Size = table.Column<int>(type: "int", nullable: false)
+                    NumberShip = table.Column<int>(type: "int", nullable: false),
+                    SizeShip = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -192,9 +195,9 @@ namespace BattleShip.Model.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Games_PlayerId",
+                name: "IX_Games_WinnerId",
                 table: "Games",
-                column: "PlayerId");
+                column: "WinnerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Players_GameId",
@@ -253,7 +256,7 @@ namespace BattleShip.Model.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Games_Players_PlayerId",
+                name: "FK_Games_Players_WinnerId",
                 table: "Games");
 
             migrationBuilder.DropTable(

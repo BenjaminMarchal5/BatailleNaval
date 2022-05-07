@@ -11,7 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BattleShip", "BattleShip\Ba
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BattleShip.Test", "BattleShip.Test\BattleShip.Test.csproj", "{29EF8FB7-3323-4269-89CD-17255F089AE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShip.Repository", "BattleShip.Repository\BattleShip.Repository.csproj", "{D52BD6ED-5953-4837-AE2F-5CF762672DAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BattleShip.Repository", "BattleShip.Repository\BattleShip.Repository.csproj", "{D52BD6ED-5953-4837-AE2F-5CF762672DAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2AABA4A-0711-4651-BF0E-6F9AFCD212FD}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

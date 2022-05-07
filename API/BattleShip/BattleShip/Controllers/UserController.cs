@@ -22,21 +22,21 @@ namespace BattleShip.Controllers
             _user = user;
         }
 
-        
+
         /// <summary>
         /// Permet à un utilisateur déjà inscrit de se connecter
         /// </summary>
-        /// <param name="request">Informations de connexion de l'utilisateur sous forme de requête</param>
+        /// <param name="user">Informations de connexion de l'utilisateur sous forme de requête</param>
         /// <returns>Un token correspondant à l'utilisateur</returns>
         [HttpPost("signin")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public ActionResult<string> Authenticate([FromBody] string Email, string Password)
+        public ActionResult<string> Authenticate([FromBody] User user)
         {
             try
             {
-                var response = _user.Authenticate(Email,Password);
+                var response = _user.Authenticate(user.Email,user.Password);
                 return Ok(response);
             }
             catch (HttpStatusException e)
@@ -67,7 +67,7 @@ namespace BattleShip.Controllers
             }
         }
 
-        /*
+        
         /// <summary>
         /// Permet de créer un utilisateur
         /// </summary>
@@ -78,11 +78,11 @@ namespace BattleShip.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status406NotAcceptable)]
-        public IActionResult CreateUser([FromBody] UserCreation user)
+        public IActionResult CreateUser([FromBody] User user)
         {
             try
             {
-                _userCommand.SaveUser(user);
+                _user.CreateUser(user);
             }
             catch (HttpStatusException e)
             {
@@ -90,8 +90,6 @@ namespace BattleShip.Controllers
             }
 
             return Ok();
-        }
-        */
-        
+        }        
     }
 }

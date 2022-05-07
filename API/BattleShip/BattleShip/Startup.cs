@@ -1,4 +1,5 @@
 using BattleShip.Model;
+using BattleShip.Model.Utils;
 using BattleShip.Repository.Interface;
 using BattleShip.Repository.Repository;
 using BattleShip.Services.Services;
@@ -32,6 +33,7 @@ namespace BattleShip
             Configuration = configuration;
         }
 
+        public ServiceProvider ServiceProvider { get; set; }
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -55,10 +57,11 @@ namespace BattleShip
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BattleShip", Version = "v1" });
-                // Include controller comments in Swagger
+
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                //c.IncludeXmlComments(xmlPath);
+                c.IncludeXmlComments(xmlPath);
+                c.IncludeXmlComments(XMLPath.GetInstance().XmlPath);
 
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
@@ -106,6 +109,16 @@ namespace BattleShip
                     IssuerSigningKey = signinKey
                 };
             });
+            ServiceProvider = services.BuildServiceProvider();
+        }
+
+
+        private Task OnTokenValidated(TokenValidatedContext arg)
+        {
+            var userEmail = arg.Principal?.Claims.First().Value;
+           // var user = ServiceProvider.GetRequiredService<UserService>().GetUser(userEmail);
+
+            return Task.FromResult(0);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -118,13 +131,13 @@ namespace BattleShip
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BattleShip v1"));
             }
 
+            app.UseHttpsRedirection();
+
             app.UseCors("AllOrigins");
             app.UseRouting();
 
-            app.UseAuthorization();
-
-            app.UseAuthentication();
-            app.UseHttpsRedirection();
+            app.UseAuthentication(); // must stay between UseRouting and UseEndpoints
+            app.UseAuthorization();            
 
             app.UseEndpoints(endpoints =>
             {

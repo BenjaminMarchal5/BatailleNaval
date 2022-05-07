@@ -13,7 +13,7 @@ namespace BattleShip.Model
         public List<Shoot> Shoots { get; set; }
         public Player Player { get; set; }
         #endregion
-
+       
         public int Id { get; set; }
         public Position Start { get; set; }
         public Position End { get; set; }
