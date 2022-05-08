@@ -51,6 +51,7 @@ namespace BattleShip
             services.AddScoped<GameService>();
             services.AddScoped<IShipRepository, ShipRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPlayerRepository, PlayerRepository>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             services.AddControllers();

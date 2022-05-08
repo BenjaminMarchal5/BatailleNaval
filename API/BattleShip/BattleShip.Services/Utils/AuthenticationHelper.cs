@@ -42,4 +42,14 @@ namespace BattleShip.Services.Utils
             return tokenHandler.WriteToken(token);
         }
     }
+
+    /// <summary>
+    /// Classe représentant les différents rôles disponibles pour un utilisateur
+    /// </summary>
+    public static class UserRoles
+    {
+        public const string SuperAdmin = "SUPERADMIN";
+        public const string Admin = "ADMIN,SUPERADMIN";
+        public const string User = "USER,ADMIN,SUPERADMIN";
+    }
 }

@@ -9,6 +9,6 @@ namespace BattleShip.Model.Enum
     public static class ERole
     {
         public const string ADMIN = "ADMIN";
-        public const string USER = "USER,ADMIN";
+        public const string USER = "USER";
     }
 }

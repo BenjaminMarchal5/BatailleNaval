@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace BattleShip.Services.Factory
 {
-    public class IAPlayerFactory
+    public class IAStrategyPlayerFactory
     {
-        public static IAPlayer Easy()
+        public static IStrategyIA Easy()
         {
-            return new IAEasy();
+            return new IStrategyIAEasy();
         }
 
-        public static IAPlayer Normal()
+        public static IStrategyIA Normal()
         {
-            return new IANormal();
+            return new IStrategyIANormal();
         }
     }
 }

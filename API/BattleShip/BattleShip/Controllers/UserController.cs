@@ -1,5 +1,6 @@
 ﻿using BattleShip.Model;
 using BattleShip.Model.Enum;
+using BattleShip.Model.Model;
 using BattleShip.Services.Services;
 using BattleShip.Services.Utils;
 using Microsoft.AspNetCore.Authorization;
@@ -26,17 +27,17 @@ namespace BattleShip.Controllers
         /// <summary>
         /// Permet à un utilisateur déjà inscrit de se connecter
         /// </summary>
-        /// <param name="user">Informations de connexion de l'utilisateur sous forme de requête</param>
+        /// <param name="request">Paramètre contenant le mot de passe et l'email pour se connecter</param>
         /// <returns>Un token correspondant à l'utilisateur</returns>
         [HttpPost("signin")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public ActionResult<string> Authenticate([FromBody] User user)
+        public ActionResult<string> Authenticate([FromBody]LoginRequest request)
         {
             try
             {
-                var response = _user.Authenticate(user.Email,user.Password);
+                var response = _user.Authenticate(request.Email,request.Password);
                 return Ok(response);
             }
             catch (HttpStatusException e)
@@ -52,7 +53,7 @@ namespace BattleShip.Controllers
         [HttpGet("whoami")]
         [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [Authorize(Roles = ERole.USER)]
+        [Authorize(Roles = UserRoles.User)]
         public ActionResult<User> Whoami()
         {
             var userEmail = HttpContext.User.Claims.First().Value;

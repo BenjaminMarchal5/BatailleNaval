@@ -11,11 +11,11 @@
             <param name="idGame">Id de la Game</param>
             <returns></returns>
         </member>
-        <member name="M:BattleShip.Controllers.UserController.Authenticate(BattleShip.Model.User)">
+        <member name="M:BattleShip.Controllers.UserController.Authenticate(BattleShip.Model.Model.LoginRequest)">
             <summary>
             Permet à un utilisateur déjà inscrit de se connecter
             </summary>
-            <param name="user">Informations de connexion de l'utilisateur sous forme de requête</param>
+            <param name="request">Paramètre contenant le mot de passe et l'email pour se connecter</param>
             <returns>Un token correspondant à l'utilisateur</returns>
         </member>
         <member name="M:BattleShip.Controllers.UserController.Whoami">

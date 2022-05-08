@@ -30,6 +30,7 @@ namespace BattleShip.Model
                 opt.HasMany(x => x.Players).WithOne(x => x.Game);
             });
 
+
             modelBuilder.Entity<Player>(opt =>
             {
                 opt.HasMany(x => x.Ships).WithOne(x => x.Player);

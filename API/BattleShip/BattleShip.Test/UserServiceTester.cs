@@ -31,10 +31,7 @@ namespace BattleShip.Test
         [TestMethod]
         public void EmailIsUnvalidThenError()
         {
-            var res = _userService.EmailIsValid(new User()
-            {
-                Email = "toto12345.gmail.com"
-            }); 
+            var res = _userService.EmailIsValid("toto12345.gmail.com");
             Assert.IsFalse(res);
             
         }
@@ -42,112 +39,77 @@ namespace BattleShip.Test
         [TestMethod]
         public void EmailIsValidThenSucess()
         {
-            var res = _userService.EmailIsValid(new User()
-            {
-                Email = "toto12345@gmail.com"
-            }); 
+            var res = _userService.EmailIsValid("toto12345@gmail.com");
             Assert.IsTrue(res);
         }
 
         [TestMethod]
         public void PasswordLenghtIsUnvalidThenError()
         {
-            var res = _userService.PasswordIsValid(new User()
-            {
-                Password = "  aa  aa"
-            }); 
+            var res = _userService.PasswordIsValid("  aa  aa");
             Assert.IsFalse(res);
         }
         
         [TestMethod]
         public void PasswordLenghtIsValidThenSuccess()
         {
-            var res = _userService.PasswordIsValid(new User()
-            {
-                Password = "aaaaaaaa"
-            }); 
+            var res = _userService.PasswordIsValid("aaaaaaaa");
             Assert.IsTrue(res);
         }
         
         [TestMethod]
         public void PasswordWithoutNumberThenError()
         {
-            var res = _userService.PasswordIsValid(new User()
-            {
-                Password = "Totocarry"
-            }); 
+            var res = _userService.PasswordIsValid("aaaaaaaa");
             Assert.IsFalse(res);
         }
         
         [TestMethod]
         public void PasswordWithoutSpecialCharThenError()
         {
-            var res = _userService.PasswordIsValid(new User()
-            {
-                Password = "Totocarry5"
-            }); 
+            var res = _userService.PasswordIsValid("Totocarry5");
             Assert.IsFalse(res);
         }
         
         [TestMethod]
         public void PasswordWithAllConditionThenSuccess()
         {
-            var res = _userService.PasswordIsValid(new User()
-            {
-                Password = "Toto4theWin@"
-            }); 
+            var res = _userService.PasswordIsValid("Toto4theWin@");
             Assert.IsTrue(res);
         }
 
         [TestMethod]
         public void PhoneNumberWithNoDigitThenError()
         {
-            var res = _userService.PhoneNumberIsValid(new User()
-            {
-                PhoneNumber = "zzeeffddcc"
-            }); 
+            var res = _userService.PhoneNumberIsValid("zzeeffddcc");
             Assert.IsFalse(res);
         }
         
         [TestMethod]
         public void PhoneNumberWithDigitAndWrongLenghtThenError()
         {
-            var res = _userService.PhoneNumberIsValid(new User()
-            {
-                PhoneNumber = "123456"
-            }); 
+            var res = _userService.PhoneNumberIsValid("123456");
             Assert.IsFalse(res);
         }
         
         [TestMethod]
         public void PhoneNumberIsValidThenSuccess()
         {
-            var res = _userService.PhoneNumberIsValid(new User()
-            {
-                PhoneNumber = "0678785610"
-            }); 
+            var res = _userService.PhoneNumberIsValid("0678785610");
             Assert.IsTrue(res);
         }
         
         [TestMethod]
         public void CivilianIdWithDigitThenError()
         {
-            var res = _userService.CivilianID(new User()
-            {
-                LastName = "Leconte5",
-                Name = "Cyril"
-            }); 
+            var res = _userService.CivilianID("Cyril", "Leconte5");
             Assert.IsFalse(res);
         }
 
         [TestMethod]
         public void CivilianIdWithNoDigitThenSuccess()
         {
-            var res = _userService.CivilianID(new User()
-            {
-                LastName = "Leconte",
-                Name = "Cyril"
-            }); 
+            var res = _userService.CivilianID("Cyril", "Leconte");
             Assert.IsTrue(res);
         }
 

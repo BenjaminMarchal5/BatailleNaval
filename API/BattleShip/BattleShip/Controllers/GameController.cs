@@ -18,17 +18,19 @@ namespace BattleShip.Controllers
     {
         private GameService _game;
         private UserService _user;
-        public GameController(GameService game, UserService user)
+        private PlayerService _player;
+        public GameController(GameService game, UserService user, PlayerService player)
         {
             _game = game;
             _user = user;
+            _player = player;
         }
 
 
         [HttpPost]
         [ProducesResponseType(typeof(Game), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [Authorize(Roles = ERole.USER)]
+        [Authorize(Roles = UserRoles.User)]
         public ActionResult<Game> CreateGame([FromBody] Game game)
         {
             try
@@ -46,13 +48,13 @@ namespace BattleShip.Controllers
         [HttpPatch("/Game/{idGame}/NextState")]
         [ProducesResponseType(typeof(Game), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [Authorize(Roles = ERole.USER)]
+        [Authorize(Roles = UserRoles.User)]
         public ActionResult<Game> NextState(int idGame)
         {
             var userEmail = HttpContext.User.Claims.First().Value;
             try
             {
-                var user=_user.GetUser(userEmail);
+                var player=_player.GetPlayer(idGame,userEmail);
                 //var g = _game.
                 return Ok();
             }

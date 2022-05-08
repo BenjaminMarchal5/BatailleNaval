@@ -32,7 +32,7 @@ namespace BattleShip.Controllers
         [ProducesResponseType(typeof(Shoot), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [Authorize(Roles = ERole.USER)]
+        [Authorize(Roles = UserRoles.User)]
         public ActionResult<Shoot> Shoot(int idGame)
         {
             var userEmail = HttpContext.User.Claims.First().Value;

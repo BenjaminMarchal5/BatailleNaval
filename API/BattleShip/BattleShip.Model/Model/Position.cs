@@ -33,5 +33,22 @@ namespace BattleShip.Model.Model
         {
             return this.X + this.Y;
         }
+
+        public List<Position> PositionAround()
+        {
+            List<Position> positions = new List<Position>();
+            for (int j = -1; j < 2; j++)
+            {
+                for (int i = -1; i < 2; i++)
+                {
+                    var pos = new Position(X - i, Y - j);
+                    if (!positions.Contains(pos))
+                    {
+                        positions.Add(pos);
+                    }
+                }
+            }
+            return positions;
+        }
     }
 }

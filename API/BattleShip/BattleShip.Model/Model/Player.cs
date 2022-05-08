@@ -21,8 +21,7 @@ namespace BattleShip.Model
         public int Id { get; set; }
         public string NickName { get; set; }
         public int Order { get; set; }
-        public EIALevel EIALevel { get;set; }
-
+        public EIALevel EIALevel { get; set; }
         public ERolePlayer Role { get; set; }
         
         public Player() { }

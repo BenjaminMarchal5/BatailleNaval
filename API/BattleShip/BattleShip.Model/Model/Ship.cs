@@ -67,6 +67,105 @@ namespace BattleShip.Model
             }
         }
 
-        
+        public EShipState ShipState()
+        {
+            if (!IsSet)
+            {
+                throw new Exception("Ship error");
+            }
+            if (Shoots == null || Shoots.Count == 0)
+            {
+                return EShipState.NOTHIT;
+            }
+            else if (Shoots.Count > 0 && Shoots.Count < GetLength())
+            {
+                return EShipState.HIT;
+            }
+            else
+            {
+                return EShipState.SINK;
+            }
+        }
+
+        public List<Position> AllPoints()
+        {
+            List<Position> points = new List<Position>();
+            if (!IsSet)
+            {
+                return points;
+            }
+
+            int minX, maxX, minY, maxY;
+            minX = Math.Min(Start.X, End.X);
+            maxX = Math.Max(Start.X, End.X);
+            minY = Math.Min(Start.Y, End.Y);
+            maxY = Math.Max(Start.Y, End.Y);
+            EDirection? direction = GetDirection();
+            if (direction == null)
+            {
+                return points;
+            }
+            else if (direction == EDirection.HORIZONTAL)
+            {
+
+                for (int j = minY; j <= maxY; j++)
+                {
+                    points.Add(new Position(minX, j));
+                }
+            }
+            else if (direction == EDirection.VERTICAL)
+            {
+                for (int i = minX; i <= maxX; i++)
+                {
+                    points.Add(new Position(i, minY));
+                }
+            }
+            else if (direction == EDirection.DIAGONAL)
+            {
+                Position gauche;
+                Position droite;
+                bool sens = false;
+                if (Start.X < End.X)
+                {
+                    gauche =Start;
+                    droite = End;
+                }
+                else
+                {
+                    droite = Start;
+                    gauche = End;
+                }
+                if (gauche.Y < droite.Y)
+                {
+                    sens = true;
+                }
+                int cpt = 0;
+                for (int i = minX; i <= maxX; i++)
+                {
+                    points.Add(new Position(i, gauche.Y + cpt * (sens ? 1 : -1)));
+                    cpt++;
+                }
+            }
+            return points;
+        }
+
+        public List<Position> PositionAroundShip()
+        {
+            if (!IsSet)
+            {
+                return new List<Position>();
+            }
+            List<Position> positions = new List<Position>();
+            var points = AllPoints();
+            foreach (var point in points)
+            {
+                var list = point.PositionAround();
+                positions.AddRange(list);
+            }
+            positions = positions.Distinct().ToList();
+            return positions;
+        }
+
+
     }
 }
