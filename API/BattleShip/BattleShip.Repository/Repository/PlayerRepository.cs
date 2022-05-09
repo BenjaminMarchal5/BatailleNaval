@@ -19,7 +19,7 @@ namespace BattleShip.Repository.Repository
 
         public Player GetPlayer(int idGame, string emailUser)
         {
-            return _context.Players.Include(i=>i.Game).Include(i => i.User).Include(i=>i.Shoots).ThenInclude(i=>i.Ship).Include(i=>i.Ships).ThenInclude(i=>i.Shoots)
+            return _context.HumanPlayers.Include(i=>i.Game).Include(i => i.User).Include(i=>i.Shoots).ThenInclude(i=>i.Ship).Include(i=>i.Ships).ThenInclude(i=>i.Shoots)
                 .FirstOrDefault(i => i.Game.Id==idGame && i.User.Email==emailUser);
         }
         

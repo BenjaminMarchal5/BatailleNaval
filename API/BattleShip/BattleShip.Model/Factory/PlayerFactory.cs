@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShip.Services.Factory
+namespace BattleShip.Model.Factory
 {
     public class PlayerFactory
     {
         public static Player PlayerWithShip(int id)
         {
-            Player p = new Player();
+            HumanPlayer p = new HumanPlayer();
             p.Id = id;
             p.NickName = "Toto";
             p.Role = ERolePlayer.CREATOR;
@@ -26,9 +26,8 @@ namespace BattleShip.Services.Factory
 
         public static Player IAPlayer(int id)
         {
-            Player p = new Player();
+            IAPlayer p = new IAPlayer();
             p.Id = id;
-            p.NickName = "IA";
             p.Role = ERolePlayer.IA;
             p.Ships = new List<Ship>();
             p.Ships.Add(ShipFactory.StandardShipHorizontal());

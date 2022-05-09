@@ -1,6 +1,7 @@
 using BattleShip.Model.Enum;
 using BattleShip.Model.Interface;
 using BattleShip.Model.Model;
+using BattleShip.Model.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,20 +49,11 @@ namespace BattleShip.Model
             {
                 return null;
             }
-
-            if (Start.X == End.X)
+            try
             {
-                return EDirection.HORIZONTAL;
+                return UtilsFunction.GetDirection(Start, End);
             }
-            else if (Start.Y == End.Y)
-            {
-                return EDirection.VERTICAL;
-            }
-            else if(Math.Abs(Start.X-End.X)==Math.Abs(Start.Y-End.Y))
-            {
-                return EDirection.DIAGONAL;
-            }
-            else
+            catch
             {
                 return null;
             }

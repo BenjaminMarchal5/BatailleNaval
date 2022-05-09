@@ -1,4 +1,5 @@
 ﻿using BattleShip.Model;
+using BattleShip.Model.Enum;
 using BattleShip.Model.Model;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShip.Services.Factory
+namespace BattleShip.Model.Factory
 {
     public class GameFactory
     {
@@ -19,7 +20,7 @@ namespace BattleShip.Services.Factory
             g.GridSize = 8;
             g.Id = 1;
             g.DateStart = DateTime.Now;
-            g.State = Model.Enum.EGameState.SETUP;
+            g.State = EGameState.SETUP;
             g.RequiredShip = new List<RequiredShip>();
             g.RequiredShip.Add(ShipFactory.Required(2, 2));
             g.RequiredShip.Add(ShipFactory.Required(1, 4));

@@ -1,5 +1,6 @@
 ﻿using BattleShip.Model.Enum;
 using BattleShip.Model.Interface;
+using BattleShip.Model.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace BattleShip.Model
     public class User : IStoredObject
     {
         #region EntityRelation
-        public List<Player> Players { get; set; }
+        public List<HumanPlayer> Players { get; set; }
         #endregion
         public int Id { get; set; }
         public string Email { get; set; }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShip.Services.Strategy
+namespace BattleShip.Model.Strategy
 {
     public class IStrategyIAEasy : IStrategyIA
     {   

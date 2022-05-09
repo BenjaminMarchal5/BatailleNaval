@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShip.Services.Factory
+namespace BattleShip.Model.Factory
 {
     public class ShipFactory
     {

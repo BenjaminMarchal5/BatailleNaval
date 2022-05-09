@@ -1,7 +1,7 @@
 using BattleShip.Model;
 using BattleShip.Model.Model;
 
-namespace BattleShip.Services.Factory
+namespace BattleShip.Model.Factory
 {
     public class ShootFactory
     {

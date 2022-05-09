@@ -29,6 +29,7 @@ namespace BattleShip.Model.Model
             return false;
         }
 
+
         public override int GetHashCode()
         {
             return this.X + this.Y;

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using BattleShip.Services.Utils;
 using BattleShip.Repository.Interface;
 using BattleShip.Model.Enum;
+using BattleShip.Model.Utils;
 
 namespace BattleShip.Services.Services
 {

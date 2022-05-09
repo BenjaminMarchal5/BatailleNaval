@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BattleShip.Model.Model
 {
-    /*
-    public class HumanPlayer : Player,IStoredObject
+
+    public class HumanPlayer : Player, IStoredObject
     {
         #region EntityRelation
         public User User { get; set; }
@@ -17,5 +17,5 @@ namespace BattleShip.Model.Model
         public string NickName { get; set; }
         public HumanPlayer() { }
     }
-    */
+    
 }

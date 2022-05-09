@@ -2,7 +2,7 @@ using BattleShip.Model;
 using BattleShip.Model.Model;
 using BattleShip.Repository.Interface;
 using BattleShip.Repository.Repository;
-using BattleShip.Services.Factory;
+using BattleShip.Model.Factory;
 using BattleShip.Services.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;

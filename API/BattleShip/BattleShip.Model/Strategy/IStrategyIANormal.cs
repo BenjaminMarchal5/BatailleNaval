@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BattleShip.Services.Strategy
+namespace BattleShip.Model.Strategy
 {
     public class IStrategyIANormal : IStrategyIA
     {
@@ -21,6 +21,7 @@ namespace BattleShip.Services.Strategy
             positions = positions.Distinct().ToList();
             return positions;
         }
+
         public override Position NextShootPosition(int GridSize,List<Shoot> AllMyShoot)
         {
             int MaxShoot = GridSize * GridSize;
@@ -44,7 +45,10 @@ namespace BattleShip.Services.Strategy
             }
             else if (AllShootHit.Count>1)
             {
-                
+                List<Position> positions = AllShootHit.Select(i => i.Hit).ToList();
+                Position start = UtilsFunction.GetMin(positions);
+                Position end = UtilsFunction.GetMax(positions);
+                return UtilsFunction.PositionNextTo(start,end,GridSize);
             }
             else
             {
