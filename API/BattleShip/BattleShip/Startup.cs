@@ -39,6 +39,8 @@ namespace BattleShip
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             var cs = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContextPool<BattleShipContext>(builder =>
             {
@@ -134,17 +136,22 @@ namespace BattleShip
 
             app.UseHttpsRedirection();
 
-            app.UseCors("AllOrigins");
+            app.UseCors(builder => builder
+             .AllowAnyOrigin()  
+             .AllowAnyMethod()
+             .AllowAnyHeader());    
+
+            
             app.UseRouting();
 
             app.UseAuthentication(); // must stay between UseRouting and UseEndpoints
             app.UseAuthorization();            
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
+            
         }
     }
 }
