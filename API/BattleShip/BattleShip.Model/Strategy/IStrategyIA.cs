@@ -19,6 +19,7 @@ namespace BattleShip.Model.Strategy
 
         protected Position GenerateRandomPosition(int GridSize)
         {
+            //Vérifier par rapport aux autres positions déjà testée
             var pos = new Position();
             pos.X = random.Next(0, GridSize);
             pos.Y = random.Next(0, GridSize);
