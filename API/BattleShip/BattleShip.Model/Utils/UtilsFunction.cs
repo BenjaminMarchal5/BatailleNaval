@@ -9,10 +9,27 @@ using System.Threading.Tasks;
 
 namespace BattleShip.Model.Utils
 {
-    public class UtilsFunction
+    public class UtilsFunction : IUtils
     {
-        public static Random random = new Random();
-        public static EDirection GetDirection(Position p1,Position p2)
+        private static UtilsFunction instance;
+        public Random random;
+
+
+        private UtilsFunction()
+        {
+            random = new Random();
+        }
+
+        public static UtilsFunction GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new UtilsFunction(); 
+            }
+            return instance;
+        }
+        
+        public  EDirection GetDirection(Position p1,Position p2)
         {
             if (p1.X == p2.X)
             {
@@ -32,7 +49,7 @@ namespace BattleShip.Model.Utils
             }
         }
 
-        public static Position GetMin(Position p1, Position p2, string attribute)
+        public  Position GetMin(Position p1, Position p2, string attribute)
         {
             if (attribute == "X")
             {
@@ -58,7 +75,7 @@ namespace BattleShip.Model.Utils
             }
         }
 
-        public static Position GetMax(Position p1, Position p2, string attribute)
+        public  Position GetMax(Position p1, Position p2, string attribute)
         {
             if (attribute == "X")
             {
@@ -84,7 +101,7 @@ namespace BattleShip.Model.Utils
             }
         }
 
-        public static Position GetMin(List<Position> positions)
+        public  Position GetMin(List<Position> positions)
         {
             Position p = null;
             if (positions.Count > 0)
@@ -101,7 +118,7 @@ namespace BattleShip.Model.Utils
             return p;
         }
 
-        public static Position GetMax(List<Position> positions)
+        public  Position GetMax(List<Position> positions)
         {
             Position p = null;
             if (positions.Count > 0)
@@ -117,7 +134,7 @@ namespace BattleShip.Model.Utils
             }
             return p;
         }
-        public static Position PositionNextTo(Position Start,Position End ,int GridSize)
+        public  Position PositionNextTo(Position Start,Position End ,int GridSize)
         {
             EDirection Direction = GetDirection(Start, End);
             Position res = new Position();
@@ -207,7 +224,7 @@ namespace BattleShip.Model.Utils
             return res;
         }
 
-        public static string Hash(string value)
+        public  string Hash(string value)
         {
             // Use input string to calculate MD5 hash
             using (MD5 md5 = MD5.Create())
