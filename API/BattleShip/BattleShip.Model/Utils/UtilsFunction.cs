@@ -15,7 +15,7 @@ namespace BattleShip.Model.Utils
         public Random random;
 
 
-        private UtilsFunction()
+        public UtilsFunction()
         {
             random = new Random();
         }

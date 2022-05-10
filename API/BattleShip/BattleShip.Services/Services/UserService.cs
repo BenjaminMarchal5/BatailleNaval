@@ -121,7 +121,7 @@ namespace BattleShip.Services.Services
                 throw new HttpStatusException(StatusCodes.Status400BadRequest, "Nom et/ou prénom inccorect");
             }
             user.Role = ERole.USER;
-            user.Password = UtilsFunction.Hash(user.Password);
+            user.Password = UtilsFunction.GetInstance().Hash(user.Password);
             return _userGeneric.Create(user);
         }
 
@@ -140,7 +140,7 @@ namespace BattleShip.Services.Services
                 throw new HttpStatusException(StatusCodes.Status400BadRequest, "Veuillez mettre votre mot de passe.");
             }
 
-            if (user.Password != UtilsFunction.Hash(Password))
+            if (user.Password != UtilsFunction.GetInstance().Hash(Password))
             {
                 throw new HttpStatusException(StatusCodes.Status400BadRequest, "Utilisateur ou mot de passe incorrect.");
             }

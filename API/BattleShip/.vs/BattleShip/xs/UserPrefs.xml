@@ -1,21 +1,19 @@
 ﻿<Properties StartupConfiguration="{EF784212-6D50-4588-A433-4D5601B12FB7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="BattleShip.Model/Utils/IUtils.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BattleShip.Test/UtilsFunctionTester.cs">
     <Files>
-      <File FileName="BattleShip.Model/Utils/IUtils.cs" Line="1" Column="1" />
-      <File FileName="BattleShip.Model/Utils/UtilsFunction.cs" Line="1" Column="1" />
+      <File FileName="BattleShip.Model/Utils/IUtils.cs" Line="18" Column="1" />
+      <File FileName="BattleShip.Model/Utils/UtilsFunction.cs" Line="37" Column="14" />
+      <File FileName="BattleShip.Test/UtilsFunctionTester.cs" Line="16" Column="2" />
+      <File FileName="BattleShip.Test/UserServiceTester.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BattleShip" expanded="True">
             <Node name="Solution Items" expanded="True" />
-            <Node name="BattleShip.Model" expanded="True">
-              <Node name="Interface" expanded="True" />
-              <Node name="Utils" expanded="True">
-                <Node name="IUtils.cs" selected="True" />
-              </Node>
+            <Node name="BattleShip.Test" expanded="True">
+              <Node name="UtilsFunctionTester.cs" selected="True" />
             </Node>
-            <Node name="BattleShip.Test" expanded="True" />
           </Node>
         </State>
       </Pad>

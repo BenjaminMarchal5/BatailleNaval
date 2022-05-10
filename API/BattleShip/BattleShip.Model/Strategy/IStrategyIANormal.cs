@@ -46,9 +46,9 @@ namespace BattleShip.Model.Strategy
             else if (AllShootHit.Count>1)
             {
                 List<Position> positions = AllShootHit.Select(i => i.Hit).ToList();
-                Position start = UtilsFunction.GetMin(positions);
-                Position end = UtilsFunction.GetMax(positions);
-                return UtilsFunction.PositionNextTo(start,end,GridSize);
+                Position start = UtilsFunction.GetInstance().GetMin(positions);
+                Position end = UtilsFunction.GetInstance().GetMax(positions); 
+                return UtilsFunction.GetInstance().PositionNextTo(start,end,GridSize);
             }
             else
             {

@@ -51,7 +51,7 @@ namespace BattleShip.Model
             }
             try
             {
-                return UtilsFunction.GetDirection(Start, End);
+                return UtilsFunction.GetInstance().GetDirection(Start, End);
             }
             catch
             {
