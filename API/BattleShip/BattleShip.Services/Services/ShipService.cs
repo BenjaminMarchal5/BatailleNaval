@@ -1,6 +1,9 @@
 ﻿using BattleShip.Model;
+using BattleShip.Model.CreationModel;
 using BattleShip.Model.Enum;
+using BattleShip.Model.Factory;
 using BattleShip.Model.Model;
+using BattleShip.Model.Utils;
 using BattleShip.Repository.Interface;
 using BattleShip.Repository.Repository;
 using System;
@@ -26,16 +29,17 @@ namespace BattleShip.Services.Services
             _shipGeneric = shipGeneric;
         }
 
-        public Ship PlaceShip(int GameId,int PlayerId, Ship ship)
+        public Ship PlaceShip(Player player, ShipCreation shipCreation)
         {
             try
             {
-                Game g = _game.Get(GameId);
+                var ship = ShipFactory.FromCreation(shipCreation);
+                Game g = _game.Get(player.GameId);
                 if (g == null)
                 {
                     throw new Exception("La Game n'a pas été trouvé");
                 }
-                Player p = _player.Get(PlayerId);
+                Player p = player;
                 if (p == null)
                 {
                     throw new Exception("Le Player n'a pas été trouvé");
@@ -67,8 +71,9 @@ namespace BattleShip.Services.Services
                 if (IsTheLastShipToPlace(g, p, ship))
                 {
                     //Put Game to next State
+                    throw new Exception("test fin");
                 }
-                ship.Player = p;
+                ship.PlayerId = player.Id;
                 return _shipGeneric.Create(ship);
             }
             catch (Exception ex)
@@ -113,6 +118,10 @@ namespace BattleShip.Services.Services
             if (currentShips!=null)
             {
                 newList = RequiredLeft(requiredShips, currentShips);
+            }
+            if (newList==null)
+            {
+                return true;
             }
             return newList.Any(i => i.SizeShip == ship.GetLength() && i.NumberShip - 1 >= 0);
         }
@@ -200,7 +209,11 @@ namespace BattleShip.Services.Services
                 return null;
             }
 
-            var newList = new List<RequiredShip>(requiredShips);
+            var newList = new List<RequiredShip>();
+            foreach (var rq in requiredShips)
+            {
+                newList.Add(UtilsClone<RequiredShip>.Clone(rq));
+            }
             foreach (var s in currentShips)
             {
                 var reg = newList.Find(i => i.SizeShip == s.GetLength());

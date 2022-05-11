@@ -11,6 +11,16 @@ namespace BattleShip.Model.Factory
 {
     public class GameFactory
     {
+
+        public static Game Game(int GridSize,List<RequiredShip> requiredShips,string state)
+        {
+            Game g = new Game();
+            g.GridSize = GridSize;
+            g.RequiredShip = requiredShips;
+            g.DateStart = DateTime.Now;
+            g.State = state;
+            return g;
+        }
         public static Game GameWithPlayer()
         {
             Game g = new Game();

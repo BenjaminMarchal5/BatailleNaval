@@ -6,6 +6,7 @@ using BattleShip.Model;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using BattleShip.Repository.Interface;
+using BattleShip.Model.Model;
 
 namespace BattleShip.Repository.Repository
 {
@@ -19,7 +20,9 @@ namespace BattleShip.Repository.Repository
 
         public Player GetPlayer(int idGame, string emailUser)
         {
-            return _context.HumanPlayers.Include(i=>i.Game).Include(i => i.User).Include(i=>i.Shoots).ThenInclude(i=>i.Ship).Include(i=>i.Ships).ThenInclude(i=>i.Shoots)
+            return _context.HumanPlayers
+                .Include(i => i.Game)
+                .Include(i => i.User)
                 .FirstOrDefault(i => i.Game.Id==idGame && i.User.Email==emailUser);
         }
         

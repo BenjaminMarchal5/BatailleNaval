@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleShip.Model.Model
+namespace BattleShip.Model.CreationModel
 {
     public class LoginRequest
     {

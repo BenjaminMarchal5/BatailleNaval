@@ -24,25 +24,44 @@ namespace BattleShip.Model
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             CreateRelations(modelBuilder);
-            //modelBuilder.Entity<Player>().Navigation(p => p.Ships).AutoInclude();
+            CreateAutoInclude(modelBuilder);
+            modelBuilder.Entity<Ship>().Navigation(p => p.Start).AutoInclude();
+            modelBuilder.Entity<Ship>().Navigation(p => p.End).AutoInclude();
+        }
+
+        private void CreateAutoInclude(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Ship>().Navigation(p => p.Start).AutoInclude();
+            modelBuilder.Entity<Ship>().Navigation(p => p.End).AutoInclude();
+            modelBuilder.Entity<Ship>().Navigation(p => p.Shoots).AutoInclude();
+
+            modelBuilder.Entity<Shoot>().Navigation(p => p.Hit).AutoInclude();
+
+            modelBuilder.Entity<Player>().Navigation(p => p.Shoots).AutoInclude();
+            modelBuilder.Entity<Player>().Navigation(p => p.Ships).AutoInclude();
+
+            modelBuilder.Entity<Game>().Navigation(p => p.Players).AutoInclude();
+            modelBuilder.Entity<Game>().Navigation(p => p.RequiredShip).AutoInclude();
+
+            modelBuilder.Entity<User>().Navigation(p => p.Players).AutoInclude();
         }
 
         private void CreateRelations(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Game>(opt =>
             {
-                opt.HasMany(x => x.Players).WithOne(x => x.Game);
+                opt.HasMany(x => x.Players).WithOne(x => x.Game).HasForeignKey(i=>i.GameId);
             });
 
 
             modelBuilder.Entity<Player>(opt =>
             {
-                opt.HasMany(x => x.Ships).WithOne(x => x.Player);
+                opt.HasMany(x => x.Ships).WithOne(x => x.Player).HasForeignKey(i => i.PlayerId); ;
             });
 
             modelBuilder.Entity<Player>(opt =>
             {
-                opt.HasMany(x => x.Shoots).WithOne(x => x.Player);
+                opt.HasMany(x => x.Shoots).WithOne(x => x.Player).HasForeignKey(i => i.PlayerId); ;
             });
 
             modelBuilder.Entity<Player>().HasDiscriminator<string>("player_type")
@@ -52,18 +71,18 @@ namespace BattleShip.Model
 
             modelBuilder.Entity<Ship>(opt =>
             {
-                opt.HasMany(x => x.Shoots).WithOne(x => x.Ship);
+                opt.HasMany(x => x.Shoots).WithOne(x => x.Ship).HasForeignKey(i => i.ShipId);
             });
 
             modelBuilder.Entity<User>(opt =>
             {
-                opt.HasMany(x => x.Players).WithOne(x => x.User);
+                opt.HasMany(x => x.Players).WithOne(x => x.User).HasForeignKey(i => i.UserId);
             });
 
 
             modelBuilder.Entity<Game>(opt =>
             {
-                opt.HasMany(x => x.RequiredShip).WithOne(x => x.Game);
+                opt.HasMany(x => x.RequiredShip).WithOne(x => x.Game).HasForeignKey(i => i.GameId);
             });
 
         }

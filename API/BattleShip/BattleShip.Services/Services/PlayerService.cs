@@ -1,4 +1,7 @@
 ﻿using BattleShip.Model;
+using BattleShip.Model.Enum;
+using BattleShip.Model.Factory;
+using BattleShip.Model.Model;
 using BattleShip.Repository.Interface;
 using BattleShip.Repository.Repository;
 using BattleShip.Services.Utils;
@@ -30,6 +33,20 @@ namespace BattleShip.Services.Services
             }
             return player;
         }
-        
+
+        public Player CreateHumanPlayer(Game g, int UserId, ERolePlayer role)
+        {
+            int nextOrder = g.Players.Count + 1;
+            var player = PlayerFactory.HumanPlayer(g.Id, UserId, role, nextOrder);
+            return _playerGeneric.Create(player);
+        }
+
+        public Player CreateIAPlayer(Game g, EIALevel lvl)
+        {
+            int nextOrder = g.Players.Count + 1;
+            var player = PlayerFactory.IAPlayer(g.Id, lvl, nextOrder);
+            return _playerGeneric.Create(player);
+        }
+
     }
 }

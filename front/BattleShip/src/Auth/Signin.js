@@ -3,10 +3,10 @@ import { useHistory } from 'react-router-dom';
 import { Button, Form, Container } from 'react-bootstrap';
 import { useAuth } from "./auth.js";
 import { useMutation } from 'react-query';
+import '../Css/Signin.css';
 
 let Signin = () => {
     let history = useHistory();
-    let { signinGoogle } = useAuth();
     let [email, setEM] = useState("");
     let [password, setP] = useState("");
     let [error, setError] = useState("");
@@ -19,7 +19,7 @@ let Signin = () => {
             .catch(error => { setError(error + ""); });
     };
 
-    return <div className="home" style={{ paddingTop: '13%' }}>
+    return <div style={{ paddingTop: '13%' }}>
         <Container>
             <div className="glass">
                 <Form.Group controlId="formBasicEmail">

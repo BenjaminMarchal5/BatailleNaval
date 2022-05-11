@@ -52,7 +52,10 @@ namespace BattleShip.Model.Strategy
             }
             else
             {
-                return GenerateRandomPosition(GridSize, AllMyShoot);
+                var allImpossiblePos = new List<Position>(impossiblePosition);
+                allImpossiblePos.AddRange(AllMyShoot.Select(i => i.Hit).ToList());
+                allImpossiblePos = allImpossiblePos.Distinct().ToList();
+                return GenerateRandomPosition(GridSize, allImpossiblePos);
             }
 
         }

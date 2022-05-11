@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BattleShip.Model.Migrations
 {
-    public partial class InitBDD : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -58,13 +58,13 @@ namespace BattleShip.Model.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<int>(type: "int", nullable: true),
-                    GameId = table.Column<int>(type: "int", nullable: true),
-                    NickName = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    GameId = table.Column<int>(type: "int", nullable: false),
                     Order = table.Column<int>(type: "int", nullable: false),
-                    EIALevel = table.Column<int>(type: "int", nullable: false),
-                    Role = table.Column<int>(type: "int", nullable: false)
+                    Role = table.Column<int>(type: "int", nullable: false),
+                    player_type = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    UserId = table.Column<int>(type: "int", nullable: true),
+                    EIALevel = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -74,7 +74,7 @@ namespace BattleShip.Model.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -84,18 +84,20 @@ namespace BattleShip.Model.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    WinnerId = table.Column<int>(type: "int", nullable: true),
+                    WinnerId1 = table.Column<int>(type: "int", nullable: true),
+                    WinnerId = table.Column<int>(type: "int", nullable: false),
                     DateStart = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     DateEnd = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     GridSize = table.Column<int>(type: "int", nullable: false),
-                    State = table.Column<int>(type: "int", nullable: false)
+                    State = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Games", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Games_Players_WinnerId",
-                        column: x => x.WinnerId,
+                        name: "FK_Games_Players_WinnerId1",
+                        column: x => x.WinnerId1,
                         principalTable: "Players",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -108,7 +110,7 @@ namespace BattleShip.Model.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    PlayerId = table.Column<int>(type: "int", nullable: true),
+                    PlayerId = table.Column<int>(type: "int", nullable: false),
                     StartId = table.Column<int>(type: "int", nullable: true),
                     EndId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -120,7 +122,7 @@ namespace BattleShip.Model.Migrations
                         column: x => x.PlayerId,
                         principalTable: "Players",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Ships_Position_EndId",
                         column: x => x.EndId,
@@ -142,7 +144,7 @@ namespace BattleShip.Model.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    GameId = table.Column<int>(type: "int", nullable: true),
+                    GameId = table.Column<int>(type: "int", nullable: false),
                     NumberShip = table.Column<int>(type: "int", nullable: false),
                     SizeShip = table.Column<int>(type: "int", nullable: false)
                 },
@@ -154,7 +156,7 @@ namespace BattleShip.Model.Migrations
                         column: x => x.GameId,
                         principalTable: "Games",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -164,8 +166,8 @@ namespace BattleShip.Model.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    PlayerId = table.Column<int>(type: "int", nullable: true),
-                    ShipId = table.Column<int>(type: "int", nullable: true),
+                    PlayerId = table.Column<int>(type: "int", nullable: false),
+                    ShipId = table.Column<int>(type: "int", nullable: false),
                     HitId = table.Column<int>(type: "int", nullable: true),
                     HasHit = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     IndexCoup = table.Column<int>(type: "int", nullable: false)
@@ -178,7 +180,7 @@ namespace BattleShip.Model.Migrations
                         column: x => x.PlayerId,
                         principalTable: "Players",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Shoots_Position_HitId",
                         column: x => x.HitId,
@@ -190,14 +192,14 @@ namespace BattleShip.Model.Migrations
                         column: x => x.ShipId,
                         principalTable: "Ships",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Games_WinnerId",
+                name: "IX_Games_WinnerId1",
                 table: "Games",
-                column: "WinnerId");
+                column: "WinnerId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Players_GameId",
@@ -250,13 +252,13 @@ namespace BattleShip.Model.Migrations
                 column: "GameId",
                 principalTable: "Games",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Games_Players_WinnerId",
+                name: "FK_Games_Players_WinnerId1",
                 table: "Games");
 
             migrationBuilder.DropTable(

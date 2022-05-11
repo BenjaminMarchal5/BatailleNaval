@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace BattleShip.Model.Enum
 {
-    public enum EGameState
+    public static class EGameState
     {
-        SETUP,PICK,PLACE,RUN,FINISH
+        public const string SETUP = "SETUP";
+        public const string PICK = "PICK";
+        public const string PLACE = "PLACE";
+        public const string RUN = "RUN";
+        public const string FINISH = "FINISH";
     }
 }

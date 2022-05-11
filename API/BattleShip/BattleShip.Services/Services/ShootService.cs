@@ -1,4 +1,5 @@
 ﻿using BattleShip.Model;
+using BattleShip.Model.Model;
 using BattleShip.Repository.Interface;
 using BattleShip.Repository.Repository;
 using System;
