@@ -10,18 +10,22 @@ using System.Threading.Tasks;
 
 namespace BattleShip.Repository.Repository
 {
-    public class UserRepository : GenericRepository<User>, IUserRepository
+    public class GameRepository : GenericRepository<Game>, IGameRepository
     {
         private BattleShipContext _context;
-        public UserRepository(BattleShipContext context) : base(context)
+        public GameRepository(BattleShipContext context) : base(context)
         {
             _context = context;
         }
 
-        public User GetUser(string Email)
+        public Game GetGame(int id)
         {
-            return _context.Users
-                .FirstOrDefault(i => i.Email == Email);
+            return _context.Games.FirstOrDefault(i => i.Id == id);
+        }
+
+        public List<Game> Historical(User user)
+        {
+            return _context.Games.ToList();
         }
 
     }

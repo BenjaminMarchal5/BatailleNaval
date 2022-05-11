@@ -4,6 +4,12 @@
         <name>BattleShip</name>
     </assembly>
     <members>
+        <member name="M:BattleShip.Controllers.GameController.GetGames">
+            <summary>
+            Récupère toutes les games
+            </summary>
+            <returns>Un code http correspondant au statut de la réponse</returns>
+        </member>
         <member name="M:BattleShip.Controllers.ShootController.Shoot(System.Int32)">
             <summary>
             Permet de tirer sur une case
@@ -11,7 +17,7 @@
             <param name="idGame">Id de la Game</param>
             <returns></returns>
         </member>
-        <member name="M:BattleShip.Controllers.UserController.Authenticate(BattleShip.Model.Model.LoginRequest)">
+        <member name="M:BattleShip.Controllers.UserController.Authenticate(BattleShip.Model.CreationModel.LoginRequest)">
             <summary>
             Permet à un utilisateur déjà inscrit de se connecter
             </summary>
@@ -24,7 +30,7 @@
             </summary>
             <returns>Les informations de l'utilisateur correspondant</returns>
         </member>
-        <member name="M:BattleShip.Controllers.UserController.CreateUser(BattleShip.Model.User)">
+        <member name="M:BattleShip.Controllers.UserController.CreateUser(BattleShip.Model.CreationModel.UserCreation)">
             <summary>
             Permet de créer un utilisateur
             </summary>

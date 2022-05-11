@@ -11,11 +11,30 @@ namespace BattleShip.Model.Factory
 {
     public class PlayerFactory
     {
+
+        public static Player HumanPlayer(int GameId,int UserId,ERolePlayer role,int order)
+        {
+            HumanPlayer p = new HumanPlayer();
+            p.Order = order;
+            p.GameId = GameId;
+            p.Role = role;
+            p.UserId = UserId;
+            return p;
+        }
+        public static Player IAPlayer(int GameId,EIALevel lvl,int order)
+        {
+            IAPlayer p = new IAPlayer();
+            p.Order = order;
+            p.EIALevel = lvl;
+            p.Role = ERolePlayer.IA;
+            p.SetDifficulty(IAStrategyPlayerFactory.Level(lvl));
+            p.GameId = GameId;
+            return p;
+        }
         public static Player PlayerWithShip(int id)
         {
             HumanPlayer p = new HumanPlayer();
             p.Id = id;
-            p.NickName = "Toto";
             p.Role = ERolePlayer.CREATOR;
             p.Ships = new List<Ship>();
             p.Ships.Add(ShipFactory.StandardShipHorizontal());

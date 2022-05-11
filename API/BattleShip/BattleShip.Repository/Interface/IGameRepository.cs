@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace BattleShip.Repository.Interface
 {
-    public interface IPlayerRepository
+    public interface IGameRepository
     {
-        Player GetPlayer(int idGame, string emailUser);
+        List<Game> Historical(User user);
+        Game GetGame(int id);
     }
 }

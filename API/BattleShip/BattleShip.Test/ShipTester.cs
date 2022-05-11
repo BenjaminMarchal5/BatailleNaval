@@ -24,7 +24,28 @@ namespace BattleShip.Test
          
         }
 
-     
+        [TestMethod]
+        public void GetLengthVertical()
+        {
+            Ship p = ShipFactory.Ship(4, 0, 4, 1);
+            Assert.AreEqual(2, p.GetLength());
+        }
+
+        [TestMethod]
+        public void GetLengthHorizontal()
+        {
+            Ship p = ShipFactory.Ship(3, 1, 4, 1);
+            Assert.AreEqual(2, p.GetLength());
+        }
+
+        [TestMethod]
+        public void GetLengthDiagonal()
+        {
+            Ship p = ShipFactory.Ship(0, 0, 3, 3);
+            Assert.AreEqual(4, p.GetLength());
+        }
+
+
         [TestMethod]
         public void ListPointWhenShipNull()
         {

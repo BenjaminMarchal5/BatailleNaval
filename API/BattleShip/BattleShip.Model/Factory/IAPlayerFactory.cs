@@ -1,4 +1,5 @@
-﻿using BattleShip.Model.Strategy;
+﻿using BattleShip.Model.Model;
+using BattleShip.Model.Strategy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,18 @@ namespace BattleShip.Model.Factory
         public static IStrategyIA Normal()
         {
             return new IStrategyIANormal();
+        }
+
+        public static IStrategyIA Level(EIALevel Level)
+        {
+            if (Level == EIALevel.EASY)
+            {
+                return Easy();
+            }else if (Level == EIALevel.NORMAL)
+            {
+                return Normal();
+            }
+            return null;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BattleShip.Model;
 using BattleShip.Model.Enum;
+using BattleShip.Model.Model;
 using BattleShip.Services.Services;
 using BattleShip.Services.Utils;
 using Microsoft.AspNetCore.Authorization;

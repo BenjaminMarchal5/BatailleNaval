@@ -17,7 +17,7 @@ namespace BattleShip.Model.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.13");
 
-            modelBuilder.Entity("BattleShip.Model.Game", b =>
+            modelBuilder.Entity("BattleShip.Model.Model.Game", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -32,17 +32,48 @@ namespace BattleShip.Model.Migrations
                     b.Property<int>("GridSize")
                         .HasColumnType("int");
 
-                    b.Property<int>("State")
+                    b.Property<string>("State")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("WinnerId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WinnerId")
+                    b.Property<int?>("WinnerId1")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("WinnerId");
+                    b.HasIndex("WinnerId1");
 
                     b.ToTable("Games");
+                });
+
+            modelBuilder.Entity("BattleShip.Model.Model.Player", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("GameId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
+                    b.Property<string>("player_type")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("Players");
+
+                    b.HasDiscriminator<string>("player_type").HasValue("Player");
                 });
 
             modelBuilder.Entity("BattleShip.Model.Model.Position", b =>
@@ -68,7 +99,7 @@ namespace BattleShip.Model.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("GameId")
+                    b.Property<int>("GameId")
                         .HasColumnType("int");
 
                     b.Property<int>("NumberShip")
@@ -84,35 +115,7 @@ namespace BattleShip.Model.Migrations
                     b.ToTable("RequiredShip");
                 });
 
-            modelBuilder.Entity("BattleShip.Model.Player", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GameId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
-
-                    b.Property<string>("player_type")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GameId");
-
-                    b.ToTable("Players");
-
-                    b.HasDiscriminator<string>("player_type").HasValue("Player");
-                });
-
-            modelBuilder.Entity("BattleShip.Model.Ship", b =>
+            modelBuilder.Entity("BattleShip.Model.Model.Ship", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -121,7 +124,7 @@ namespace BattleShip.Model.Migrations
                     b.Property<int?>("EndId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PlayerId")
+                    b.Property<int>("PlayerId")
                         .HasColumnType("int");
 
                     b.Property<int?>("StartId")
@@ -138,7 +141,7 @@ namespace BattleShip.Model.Migrations
                     b.ToTable("Ships");
                 });
 
-            modelBuilder.Entity("BattleShip.Model.Shoot", b =>
+            modelBuilder.Entity("BattleShip.Model.Model.Shoot", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -153,10 +156,10 @@ namespace BattleShip.Model.Migrations
                     b.Property<int>("IndexCoup")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PlayerId")
+                    b.Property<int>("PlayerId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ShipId")
+                    b.Property<int>("ShipId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -170,7 +173,7 @@ namespace BattleShip.Model.Migrations
                     b.ToTable("Shoots");
                 });
 
-            modelBuilder.Entity("BattleShip.Model.User", b =>
+            modelBuilder.Entity("BattleShip.Model.Model.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -204,12 +207,9 @@ namespace BattleShip.Model.Migrations
 
             modelBuilder.Entity("BattleShip.Model.Model.HumanPlayer", b =>
                 {
-                    b.HasBaseType("BattleShip.Model.Player");
+                    b.HasBaseType("BattleShip.Model.Model.Player");
 
-                    b.Property<string>("NickName")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasIndex("UserId");
@@ -219,7 +219,7 @@ namespace BattleShip.Model.Migrations
 
             modelBuilder.Entity("BattleShip.Model.Model.IAPlayer", b =>
                 {
-                    b.HasBaseType("BattleShip.Model.Player");
+                    b.HasBaseType("BattleShip.Model.Model.Player");
 
                     b.Property<int>("EIALevel")
                         .HasColumnType("int");
@@ -227,42 +227,48 @@ namespace BattleShip.Model.Migrations
                     b.HasDiscriminator().HasValue("player_IA");
                 });
 
-            modelBuilder.Entity("BattleShip.Model.Game", b =>
+            modelBuilder.Entity("BattleShip.Model.Model.Game", b =>
                 {
-                    b.HasOne("BattleShip.Model.Player", "Winner")
+                    b.HasOne("BattleShip.Model.Model.Player", "Winner")
                         .WithMany()
-                        .HasForeignKey("WinnerId");
+                        .HasForeignKey("WinnerId1");
 
                     b.Navigation("Winner");
                 });
 
+            modelBuilder.Entity("BattleShip.Model.Model.Player", b =>
+                {
+                    b.HasOne("BattleShip.Model.Model.Game", "Game")
+                        .WithMany("Players")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Game");
+                });
+
             modelBuilder.Entity("BattleShip.Model.Model.RequiredShip", b =>
                 {
-                    b.HasOne("BattleShip.Model.Game", "Game")
+                    b.HasOne("BattleShip.Model.Model.Game", "Game")
                         .WithMany("RequiredShip")
-                        .HasForeignKey("GameId");
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Game");
                 });
 
-            modelBuilder.Entity("BattleShip.Model.Player", b =>
-                {
-                    b.HasOne("BattleShip.Model.Game", "Game")
-                        .WithMany("Players")
-                        .HasForeignKey("GameId");
-
-                    b.Navigation("Game");
-                });
-
-            modelBuilder.Entity("BattleShip.Model.Ship", b =>
+            modelBuilder.Entity("BattleShip.Model.Model.Ship", b =>
                 {
                     b.HasOne("BattleShip.Model.Model.Position", "End")
                         .WithMany()
                         .HasForeignKey("EndId");
 
-                    b.HasOne("BattleShip.Model.Player", "Player")
+                    b.HasOne("BattleShip.Model.Model.Player", "Player")
                         .WithMany("Ships")
-                        .HasForeignKey("PlayerId");
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("BattleShip.Model.Model.Position", "Start")
                         .WithMany()
@@ -275,19 +281,23 @@ namespace BattleShip.Model.Migrations
                     b.Navigation("Start");
                 });
 
-            modelBuilder.Entity("BattleShip.Model.Shoot", b =>
+            modelBuilder.Entity("BattleShip.Model.Model.Shoot", b =>
                 {
                     b.HasOne("BattleShip.Model.Model.Position", "Hit")
                         .WithMany()
                         .HasForeignKey("HitId");
 
-                    b.HasOne("BattleShip.Model.Player", "Player")
+                    b.HasOne("BattleShip.Model.Model.Player", "Player")
                         .WithMany("Shoots")
-                        .HasForeignKey("PlayerId");
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("BattleShip.Model.Ship", "Ship")
+                    b.HasOne("BattleShip.Model.Model.Ship", "Ship")
                         .WithMany("Shoots")
-                        .HasForeignKey("ShipId");
+                        .HasForeignKey("ShipId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Hit");
 
@@ -298,33 +308,35 @@ namespace BattleShip.Model.Migrations
 
             modelBuilder.Entity("BattleShip.Model.Model.HumanPlayer", b =>
                 {
-                    b.HasOne("BattleShip.Model.User", "User")
+                    b.HasOne("BattleShip.Model.Model.User", "User")
                         .WithMany("Players")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BattleShip.Model.Game", b =>
+            modelBuilder.Entity("BattleShip.Model.Model.Game", b =>
                 {
                     b.Navigation("Players");
 
                     b.Navigation("RequiredShip");
                 });
 
-            modelBuilder.Entity("BattleShip.Model.Player", b =>
+            modelBuilder.Entity("BattleShip.Model.Model.Player", b =>
                 {
                     b.Navigation("Ships");
 
                     b.Navigation("Shoots");
                 });
 
-            modelBuilder.Entity("BattleShip.Model.Ship", b =>
+            modelBuilder.Entity("BattleShip.Model.Model.Ship", b =>
                 {
                     b.Navigation("Shoots");
                 });
 
-            modelBuilder.Entity("BattleShip.Model.User", b =>
+            modelBuilder.Entity("BattleShip.Model.Model.User", b =>
                 {
                     b.Navigation("Players");
                 });

@@ -11,6 +11,8 @@ using BattleShip.Services.Utils;
 using BattleShip.Repository.Interface;
 using BattleShip.Model.Enum;
 using BattleShip.Model.Utils;
+using BattleShip.Model.Model;
+using BattleShip.Model.CreationModel;
 
 namespace BattleShip.Services.Services
 {
@@ -94,7 +96,7 @@ namespace BattleShip.Services.Services
         }
 
 
-        public User CreateUser(User user)
+        public User CreateUser(UserCreation user)
         {
             if (user==null)
             {
@@ -120,9 +122,15 @@ namespace BattleShip.Services.Services
             {
                 throw new HttpStatusException(StatusCodes.Status400BadRequest, "Nom et/ou prénom inccorect");
             }
-            user.Role = ERole.USER;
-            user.Password = UtilsFunction.Hash(user.Password);
-            return _userGeneric.Create(user);
+            User u = new User();
+            u.LastName = user.LastName;
+            u.DateOfBirth = user.DateOfBirth;
+            u.Email = user.Email;
+            u.Password = user.Password;
+            u.Name = user.Name;
+            u.Role = ERole.USER;
+            u.Password = UtilsFunction.Hash(u.Password);
+            return _userGeneric.Create(u);
         }
 
 

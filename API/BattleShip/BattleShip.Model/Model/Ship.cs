@@ -5,16 +5,19 @@ using BattleShip.Model.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 
-namespace BattleShip.Model
+namespace BattleShip.Model.Model
 {
+
     public class Ship : IStoredObject
     {
         #region EntityRelation
         public List<Shoot> Shoots { get; set; }
+        [JsonIgnore]
         public Player Player { get; set; }
         #endregion
-       
+        public int PlayerId { get; set; }
         public int Id { get; set; }
         public Position Start { get; set; }
         public Position End { get; set; }
@@ -36,10 +39,15 @@ namespace BattleShip.Model
             }
             double distX = Math.Abs(Start.X - End.X);
             double distY = Math.Abs(Start.Y - End.Y);
-            var res = distX + distY;
+            double res =0;
             if (GetDirection()!=EDirection.DIAGONAL) {
-                res++;
+                res = distX + distY;
             }
+            else
+            {
+                res = distY;
+            }
+            res++;
             return Convert.ToInt32(res);
         }
 

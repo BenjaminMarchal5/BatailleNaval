@@ -25,14 +25,19 @@ namespace BattleShip.Model.Strategy
             return pos;
         }
 
-        protected Position GenerateRandomPosition(int GridSize,List<Shoot> AllMyShoot)
+        protected Position GenerateRandomPosition(int GridSize,List<Position> AllImpossiblePosition)
         {
             var randomPosition = GenerateRandomPosition(GridSize);
-            while (AllMyShoot.Select(i => i.Hit).Any(i => randomPosition.Equals(i)))
+            if (AllImpossiblePosition==null)
+            {
+                return randomPosition;
+            }
+            while (AllImpossiblePosition.Any(i => randomPosition.Equals(i)))
             {
                 randomPosition = GenerateRandomPosition(GridSize);
             }
             return randomPosition;
         }
+
     }
 }

@@ -8,6 +8,6 @@ namespace BattleShip.Model.Model
 {
     public enum EIALevel
     {
-        EASY,NORMAL,HARD
+        EASY,NORMAL
     }
 }

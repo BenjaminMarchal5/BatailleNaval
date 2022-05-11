@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BattleShip.Model.Model
@@ -11,10 +12,10 @@ namespace BattleShip.Model.Model
     public class HumanPlayer : Player, IStoredObject
     {
         #region EntityRelation
+        [JsonIgnore]
         public User User { get; set; }
         #endregion
-
-        public string NickName { get; set; }
+        public int UserId { get; set; }
         public HumanPlayer() { }
     }
     

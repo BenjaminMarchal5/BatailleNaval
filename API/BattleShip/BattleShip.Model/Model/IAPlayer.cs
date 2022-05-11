@@ -16,6 +16,12 @@ namespace BattleShip.Model.Model
         public IAPlayer() {
             
         }
+
+        public void SetDifficulty(IStrategyIA strat)
+        {
+            this.Difficulty = strat;
+        }
+
     }
     
 }

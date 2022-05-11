@@ -1,4 +1,5 @@
 ﻿using BattleShip.Model;
+using BattleShip.Model.CreationModel;
 using BattleShip.Model.Model;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,13 @@ namespace BattleShip.Model.Factory
     public class ShipFactory
     {
 
+        public static Ship FromCreation(ShipCreation creation)
+        {
+            var s = new Ship();
+            s.End = creation.End;
+            s.Start = creation.Start;
+            return s;
+        }
         public static RequiredShip Required(int Number,int Size)
         {
             return new RequiredShip() { NumberShip = Number, SizeShip = Size };

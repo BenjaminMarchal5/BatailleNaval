@@ -15,9 +15,9 @@ namespace BattleShip.Model.Strategy
             int MaxShoot = GridSize * GridSize;
             if (AllMyShoot.Count>=MaxShoot)
             {
-                throw new Exception("");
+                throw new Exception("Erreur, toutes les cases shooté");
             }
-            var pos = GenerateRandomPosition(GridSize, AllMyShoot);
+            var pos = GenerateRandomPosition(GridSize, AllMyShoot.Select(i=>i.Hit).ToList());
             return pos;
         }
     }
