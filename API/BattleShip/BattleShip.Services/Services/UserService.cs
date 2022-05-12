@@ -11,6 +11,8 @@ using BattleShip.Services.Utils;
 using BattleShip.Repository.Interface;
 using BattleShip.Model.Enum;
 using BattleShip.Model.Utils;
+using BattleShip.Model;
+using BattleShip.Model.Model;
 
 namespace BattleShip.Services.Services
 {

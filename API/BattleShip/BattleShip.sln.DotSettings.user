@@ -37,8 +37,10 @@
       &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.ShipServiceTester.WhenShipIsBehondGridThenError&lt;/TestId&gt;
       &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UtilsFunctionTester.test1tacapte&lt;/TestId&gt;
       &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.UtilsFunctionTester.WhenPositionShipIsHorizontalThenReturnHorizontal&lt;/TestId&gt;
+      &lt;TestId&gt;MSTest::29EF8FB7-3323-4269-89CD-17255F089AE4::net5.0::BattleShip.Test.ShipRequiredTester.WithShipRequiredSize2ThenGetAllPositilibity&lt;/TestId&gt;
     &lt;/TestAncestor&gt;
     &lt;ProjectFile&gt;29EF8FB7-3323-4269-89CD-17255F089AE4/f:ShipServiceTester.cs&lt;/ProjectFile&gt;
     &lt;ProjectFile&gt;29EF8FB7-3323-4269-89CD-17255F089AE4/f:UtilsFunctionTester.cs&lt;/ProjectFile&gt;
+    &lt;ProjectFile&gt;29EF8FB7-3323-4269-89CD-17255F089AE4/f:ShipRequiredTester.cs&lt;/ProjectFile&gt;
   &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -1,25 +1,25 @@
 ﻿<Properties StartupConfiguration="{EF784212-6D50-4588-A433-4D5601B12FB7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="BattleShip.Test/UtilsFunctionTester.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BattleShip.Test/UserServiceTester.cs">
     <Files>
       <File FileName="BattleShip.Model/Utils/IUtils.cs" Line="18" Column="1" />
-      <File FileName="BattleShip.Model/Utils/UtilsFunction.cs" Line="37" Column="14" />
+      <File FileName="BattleShip.Model/Utils/UtilsFunction.cs" />
       <File FileName="BattleShip.Test/UtilsFunctionTester.cs" Line="16" Column="2" />
       <File FileName="BattleShip.Test/UserServiceTester.cs" Line="1" Column="1" />
+      <File FileName="BattleShip.Services/Services/UserService.cs" Line="20" Column="39" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BattleShip" expanded="True">
             <Node name="Solution Items" expanded="True" />
+            <Node name="BattleShip.Repository" expanded="True" />
+            <Node name="BattleShip.Services" expanded="True">
+              <Node name="Services" expanded="True" />
+            </Node>
             <Node name="BattleShip.Test" expanded="True">
-              <Node name="UtilsFunctionTester.cs" selected="True" />
+              <Node name="UserServiceTester.cs" selected="True" />
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="BattleShip" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

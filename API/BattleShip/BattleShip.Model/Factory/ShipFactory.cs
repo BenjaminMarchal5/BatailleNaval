@@ -28,6 +28,8 @@ namespace BattleShip.Model.Factory
             return new Ship() { Start = new Position(x, y), End = new Position(x2, y2) };
         }
 
+        
+
         public static Ship StandardShipHorizontal()
         {
             return Ship(2, 2, 2, 0);

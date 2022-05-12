@@ -132,7 +132,7 @@ namespace BattleShip.Services.Services
 
             List<int> list = new List<int>() { ship.Start.X, ship.Start.Y, ship.End.X, ship.End.Y };
 
-            return list.All(x => x >= 0 && x < gridSize);
+            return list.All(x => x >= 0 && x <= gridSize);
         }
 
         public bool IsPositionAvailable(Ship ship, List<Ship> otherShips)
@@ -230,7 +230,11 @@ namespace BattleShip.Services.Services
         public bool HasBeenHit(Ship ship, Position pos)
         {
             List<Position> positionShip = ship.AllPoints();
-            if (positionShip.Any(i => i.Equals(pos)))
+            if (positionShip == null)
+            {
+                return false; 
+            }
+            else if (positionShip.Any(i => i.Equals(pos)))
             {
                 return true; 
             }

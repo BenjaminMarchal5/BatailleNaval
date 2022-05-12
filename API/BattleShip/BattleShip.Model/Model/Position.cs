@@ -29,6 +29,11 @@ namespace BattleShip.Model.Model
             return false;
         }
 
+        public override string ToString()
+        {
+            return "("+X+";"+Y+")";
+        }
+
 
         public override int GetHashCode()
         {
